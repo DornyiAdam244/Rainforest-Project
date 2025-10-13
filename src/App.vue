@@ -167,4 +167,8 @@ h1, h2, h3 {
     border-radius: 0 20px 0 20px;
 }
 
+.btn:hover {
+    background-color: #105950
+}
+
 </style>
