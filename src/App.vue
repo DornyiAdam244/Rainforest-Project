@@ -1,4 +1,6 @@
 <script setup>
+import Footer from './components/Footer.vue';
+
 </script>
 
 <template>
@@ -8,7 +10,7 @@
 <main>
     <section class="container-fluid d-flex flex-column align-items-center">
         <h1 class="text-center">Esőerdő projekt</h1>
-        <div id="carouselExample" class="carousel slide">
+        <div id="carouselExample" class="carousel slide container-fluid">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -49,6 +51,7 @@
                 <p>Merülj el az esőerdők világában! Barangold be térképen, ismerd meg titkaikat, és fedezd fel, hogyan kapcsolódik minden apró részlet a természet egészéhez. Tanulj játékosan, miközben igazi felfedezővé válsz!</p>
             </div>
         </div>
+        <button type="button" class="btn">Többet</button>
         <div class="container-fluid mt-3 py-4">
             <h2 class="text-center">Miért fontos?</h2>
             <div class="container">
@@ -86,7 +89,9 @@
                 <p>Sokan nem is tudják, milyen fontos szerepet játszanak az esőerdők a Föld életében. Mesélj róluk a barátaidnak, az iskolában vagy a közösségi médiában – minden beszélgetés közelebb visz a tudatosabb világ felé. Készíthetsz plakátot, posztot, vagy akár egy rövid videót is a témáról. Egy kis figyelemfelhívás sokakat inspirálhat a cselekvésre.</p>
             </div>
         </div>
-        <div class="container-fluid text-center mt-3 py-4">
+        <div class="container-fluid bg-div">
+        </div>
+        <div class="container-fluid text-center py-4">
             <h2>Térkép</h2>
             <img class="map" src="./assets/vue.svg" alt="">
         </div>
@@ -95,36 +100,41 @@
                 <h3>📘 E-learning</h3>
                 <p>Játékos és figyelemfelkeltő tudástárunk bárkinek segít megismerni az esőerdők különleges állatvilágát.
                     Tanulj interaktív módon, képekkel, hangokkal és érdekességekkel!</p>
-                <button type="button" class="btn btn-primary">Go</button>
+                <button type="button" class="btn">Menjünk</button>
             </div>
             <div class="col-lg-6 col-12 mt-lg-0 mt-3">
                 <h3>🧩 Teszteld tudásod!</h3>
                 <p>A népszerű „Would you rather” kvízjáték mintájára készült tudáspróbánkon kipróbálhatod, mennyire ismered az állatok tulajdonságait – miközben szórakozva tanulsz.</p>
-                <button type="button" class="btn btn-primary">Go</button>
+                <button type="button" class="btn">Menjünk</button>
             </div>
         </div>
     </section>
 </main>
-<footer>
-
-</footer>
+<Footer/>
 </template>
 
 <style scoped>
-.carousel {
-    width: 50%
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+.carousel img {
+    max-height: 400px;
+    object-fit: cover;
 }
 img, .carousel img {
     width: 100%
 }
 div.container-fluid {
-    background-color: #eee;
+    background-color: #adcc9d;
 }
-section.container-fluid {
+.carousel, section.container-fluid {
     padding: 0 !important
 }
 .map {
     width: 25%;
+}
+.bg-div {
+    background-image: url("./assets/section-bg.jpg");
+    background-size: cover;
+    height: 300px;
 }
 
 @font-face {
@@ -134,9 +144,27 @@ section.container-fluid {
   src: url("Verdana.ttf");
 }
 
-p {
+p, li {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color: #696969
 }
+
+h1, h2, h3 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  color: #4b7637;
+  text-transform: uppercase;
+}
+
+.btn {
+    background-color: #4b7637;
+    color: #fff;
+    text-transform: uppercase;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 0 20px 0 20px;
+}
+
 </style>
