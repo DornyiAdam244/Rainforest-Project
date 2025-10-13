@@ -112,49 +112,26 @@
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
-
-.carousel img { max-height: 400px; object-fit: cover; }
-img, .carousel img { width: 100% }
-
-div.container-fluid { background-color: #adcc9d; }
-.carousel, section.container-fluid { padding: 0 !important }
-
-.map { width: 25%; }
-
-.bg-div {
-  background-image: url('../assets/section-bg.jpg');
-  background-size: cover;
-  height: 300px;
+.carousel img {
+  max-height: 400px;
+  object-fit: cover;
 }
 
-/* ha a Verdana.ttf a src/css-ben van: */
-@font-face {
-  font-family: 'Verdana';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../css/Verdana.ttf');
+img,
+.carousel img {
+  width: 100%
 }
 
-p, li {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #696969
+div.container-fluid {
+  background-color: #adcc9d;
 }
 
-h1, h2, h3 {
-  font-family: "Raleway", sans-serif;
-  color: #4b7637;
-  text-transform: uppercase;
+.carousel,
+section.container-fluid {
+  padding: 0 !important
 }
 
-.btn {
-  background-color: #4b7637;
-  color: #fff;
-  text-transform: uppercase;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 0 20px 0 20px;
+.map {
+  width: 25%;
 }
 </style>
