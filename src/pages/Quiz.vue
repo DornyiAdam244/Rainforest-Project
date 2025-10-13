@@ -3,7 +3,7 @@
 
 <template>
   
-  <main style="max-width:1100px;margin:0 auto;padding:1rem">
+  <main>
     <router-view />
   </main>
   <Footer />
