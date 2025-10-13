@@ -49,12 +49,12 @@
                 <p>Merülj el az esőerdők világában! Barangold be térképen, ismerd meg titkaikat, és fedezd fel, hogyan kapcsolódik minden apró részlet a természet egészéhez. Tanulj játékosan, miközben igazi felfedezővé válsz!</p>
             </div>
         </div>
-        <div class="container-fluid mt-3 py-3">
+        <div class="container-fluid mt-3 py-4">
             <h2 class="text-center">Miért fontos?</h2>
             <div class="container">
                 <article class="row mt-3">
                     <div class="col-lg-8 col-12 order-lg-1 order-2">
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush mt-lg-0 mt-4">
                             <li class="list-group-item">🌍 Az esőerdők hatalmas mennyiségű oxigént termelnek, miközben elnyelik a szén-dioxidot.
                                 Nélkülük a levegőnk sokkal kevésbé lenne élhető.</li>
                             <br>
@@ -86,7 +86,7 @@
                 <p>Sokan nem is tudják, milyen fontos szerepet játszanak az esőerdők a Föld életében. Mesélj róluk a barátaidnak, az iskolában vagy a közösségi médiában – minden beszélgetés közelebb visz a tudatosabb világ felé. Készíthetsz plakátot, posztot, vagy akár egy rövid videót is a témáról. Egy kis figyelemfelhívás sokakat inspirálhat a cselekvésre.</p>
             </div>
         </div>
-        <div class="container-fluid text-center mt-3 py-3">
+        <div class="container-fluid text-center mt-3 py-4">
             <h2>Térkép</h2>
             <img class="map" src="./assets/vue.svg" alt="">
         </div>
@@ -97,7 +97,7 @@
                     Tanulj interaktív módon, képekkel, hangokkal és érdekességekkel!</p>
                 <button type="button" class="btn btn-primary">Go</button>
             </div>
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12 mt-lg-0 mt-3">
                 <h3>🧩 Teszteld tudásod!</h3>
                 <p>A népszerű „Would you rather” kvízjáték mintájára készült tudáspróbánkon kipróbálhatod, mennyire ismered az állatok tulajdonságait – miközben szórakozva tanulsz.</p>
                 <button type="button" class="btn btn-primary">Go</button>
@@ -125,5 +125,18 @@ section.container-fluid {
 }
 .map {
     width: 25%;
+}
+
+@font-face {
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 400;
+  src: url("Verdana.ttf");
+}
+
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 }
 </style>

@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 400;
+  src: url("Verdana.ttf");
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
