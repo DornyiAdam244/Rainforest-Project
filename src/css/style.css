@@ -35,6 +35,9 @@ li {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+}
+
+li:not(footer li) {
   color: #696969
 }
 
@@ -46,11 +49,17 @@ h3 {
   text-transform: uppercase;
 }
 
-.btn {
+.btn:not(.footer-top button) {
   background-color: #4b7637;
   color: #fff;
+  border: none;
   text-transform: uppercase;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 0 20px 0 20px;
+  box-shadow: none !important;
+}
+
+.btn:active {
+  background-color: #4b7637a4 !important;
 }

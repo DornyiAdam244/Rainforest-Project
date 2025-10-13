@@ -96,7 +96,7 @@
       <img class="map" src="../assets/vue.svg" alt="">
     </div>
 
-    <div class="container row text-center mt-3">
+    <div class="container row text-center mt-3 p-3">
       <div class="col-lg-6 col-12">
         <h3>📘 E-learning</h3>
         <p>Játékos és figyelemfelkeltő tudástárunk bárkinek segít megismerni az esőerdők különleges állatvilágát. Tanulj interaktív módon, képekkel, hangokkal és érdekességekkel!</p>

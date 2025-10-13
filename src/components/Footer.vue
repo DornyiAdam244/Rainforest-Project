@@ -79,6 +79,7 @@ li {
 }
 
 .footer-top h3 {
+    color: #fff;
     font-size: 40px;
     margin-bottom: 40px;
 }
