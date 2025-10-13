@@ -1,9 +1,7 @@
 <script setup>
 </script>
 
-<template>
-My life my rules
-</template>
+<template></template>
 
 <style scoped>
 </style>
