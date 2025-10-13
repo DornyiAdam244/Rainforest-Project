@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 //  ^^^^^^^^^^^^^^^^^^^
-
 import Home from '../pages/Home.vue';
 import Quiz from '../pages/Quiz.vue';
 import ELearning from '../pages/ELearning.vue';

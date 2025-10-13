@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
 @font-face {
   font-family: 'Verdana';
   font-style: normal;
@@ -5,12 +7,16 @@
   src: url("Verdana.ttf");
 }
 
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 
 :root {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+}
+
+
+a {
+  text-decoration: none;
 }
 
 
