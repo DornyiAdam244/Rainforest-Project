@@ -4,7 +4,7 @@ import Footer from './components/Footer.vue';
 
 <template>
   
-  <main style="max-width:1100px;margin:0 auto;padding:1rem">
+  <main>
     <router-view />
   </main>
 </template>
