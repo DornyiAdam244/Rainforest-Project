@@ -64,3 +64,15 @@ h3 {
   background-color: #4b7637a4 !important;
 }
 
+.btnYellow {
+  background-color: #f05122 !important;
+  color: #fccd07 !important
+}
+
+.btnYellow:hover {
+  background-color: #eb3c3c !important;
+}
+
+.btn:not(.footer-top button):hover {
+  background-color: #105950;
+}
