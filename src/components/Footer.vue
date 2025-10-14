@@ -11,7 +11,7 @@
         <div class="backdrop"></div>
         <div class="content p-5">
             <section class="row">
-                <div class="contact-form col-lg-3">
+                <div class="contact-form col-lg-6">
                     <form>
                         <h4>Tell Us What You Think</h4>
                         <div class="mb-3">
@@ -26,36 +26,39 @@
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">I Agree to <a href="#">Terms and Conditions</a></label>
+                            <label class="form-check-label" for="exampleCheck1">I Agree to <a href="#">Terms and
+                                    Conditions</a></label>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
-                <div class="col-lg-3">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>
-                            <i class="bi bi-telephone-fill me-2"></i> +36 90 123 4567
-                        </li>
-                        <li><i class="bi bi-envelope-fill me-2"></i> rainforestTean@forestmail.com</li>
-                        <li>Random Address</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Social</h4>
-                    <ul class="d-flex p-0 justify-content-center">
-                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                        <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Locations</h4>
-                    <ul class="p-0">
-                        <li>Lorem ipsum 1</li>
-                        <li>Lorem ipsum 2</li>
-                        <li>Lorem ipsum 3</li>
-                    </ul>
+                <div class="footer-menu row col-lg-6">
+                    <div class="col-lg-6">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li>
+                                <i class="bi bi-telephone-fill me-2"></i> +36 90 123 4567
+                            </li>
+                            <li><i class="bi bi-envelope-fill me-2"></i> rainforestTean@forestmail.com</li>
+                            <li>Random Address</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4>Locations</h4>
+                        <ul class="p-0">
+                            <li>Lorem ipsum 1</li>
+                            <li>Lorem ipsum 2</li>
+                            <li>Lorem ipsum 3</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2">
+                        <h4>Social</h4>
+                        <ul class="">
+                            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                            <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                            <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <div class="copyright">
@@ -67,11 +70,6 @@
     </footer>
 </template>
 <style scoped>
-
-li {
-    text-align: center;
-}
-
 .footer-top {
     background-color: #2b2b2b;
     color: #fff;
@@ -96,6 +94,11 @@ li {
 }
 
 
+.contact-form {
+    position: relative;
+    padding-top: 0 !important;
+}
+
 .contact-form h3 {
     font-size: 40px;
 }
@@ -110,7 +113,8 @@ form {
     top: -100px;
 }
 
-label a, label a:hover {
+label a,
+label a:hover {
     color: #0000ff;
 }
 
@@ -120,7 +124,7 @@ footer {
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: relative;
-    height: 50vh;
+    min-height: 50vh;
 }
 
 ul h4 {
@@ -131,6 +135,9 @@ ul h4 {
     z-index: 1;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
     position: absolute;
     backdrop-filter: blur(2px);
     background-color: #00000028;
@@ -141,8 +148,6 @@ ul h4 {
 } */
 
 ul.d-flex li {
-    display: flex;
-    justify-content: center;
     margin: 0 10px;
 }
 
@@ -152,19 +157,18 @@ a:hover {
 }
 
 .copyright {
-    position: absolute;
+    margin-top: 40px;
+    text-align: center;
     bottom: 30px;
-    left: 50%;
-    transform: translate(-50%);
 }
 
 ul {
     list-style-type: none;
+    padding: 0 !important;
 }
 
 
 h4 {
-    text-align: center;
     margin-bottom: 40px;
 }
 
@@ -173,11 +177,11 @@ i {
 }
 
 h4 {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 li {
-    font-size: 18px;
+    font-size: 14px !important;
 }
 
 .content {
@@ -185,6 +189,19 @@ li {
     z-index: 2;
     width: 100%;
     height: 100%;
-    position: absolute;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    form {
+        position: static !important;
+    }
+
+    .contact-form {
+        position: static !important;
+        padding: 30px;
+    }
 }
 </style>
