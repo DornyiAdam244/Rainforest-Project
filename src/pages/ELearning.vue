@@ -63,7 +63,7 @@ const randomAnimal = () => {
         <div class="modal-dialog-centered modal-lg modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h2 class="fw-bold fs-5">Tigrincs</h2>
+              <h2 class="fw-bold fs-5">{{ animals[focusedAnimalID].Name }}</h2>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
