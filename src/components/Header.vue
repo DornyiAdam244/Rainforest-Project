@@ -23,6 +23,9 @@
                             <a class="nav-link" href="#">Térképoldal</a>
                         </li>
                         <li class="nav-item">
+                            <router-link to="/elearning"><a class="nav-link" href="#">E-learning</a></router-link>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Kvízjáték</a>
                         </li>
                         <li class="nav-item">
