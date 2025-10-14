@@ -65,10 +65,13 @@ h3 {
   text-transform: uppercase;
 }
 
-.btn:not(.footer-top button) {
+.btn:not(.footer-top .btn, .outline) {
   background-color: #4b7637;
   color: #fff;
   border: none;
+}
+
+.btn:not(.footer-top .btn) {
   text-transform: uppercase;
   padding-left: 20px;
   padding-right: 20px;
@@ -76,6 +79,20 @@ h3 {
   box-shadow: none !important;
 }
 
+.btn.outline {
+  background-color: transparent;
+  border: 2px solid #4b7637;
+  color: #4b7637;
+}
+
+.btn.outline:hover {
+  background-color: #4b763775;
+}
+
+.btn:active:not(.outline) {
+  background-color: #4b7637a4 !important;
+
+}
 .btnYellow {
   background-color: #f05122 !important;
   color: #fccd07 !important
