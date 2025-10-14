@@ -4,8 +4,6 @@
 
 <template>
   <section class="container-fluid d-flex flex-column align-items-center">
-    <h1 class="text-center">Esőerdő projekt</h1>
-
     <!-- CAROUSEL -->
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade container-fluid">
       <div class="carousel-indicators">
@@ -67,7 +65,7 @@
       <h2 class="text-center">Miért fontos?</h2>
       <div class="container">
         <article class="row mt-3">
-          <div class="col-lg-8 col-12 order-lg-1 order-2">
+          <div class="col-lg-8 col-12 order-lg-1 order-2 mt-md-0 mt-3">
             <div class="accordion" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -132,7 +130,7 @@
 
     <div class="container-fluid text-center py-4">
       <h2>Térkép</h2>
-      <img class="map" src="../assets/vue.svg" alt="">
+      <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=-4.196917,%20-65.272158+(Amazon)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.mapsdirections.info/it/calcola-la-popolazione-su-una-mappa/">popolazione per regione Italia mappa</a></iframe></div>
     </div>
 
     <div class="container row text-center my-5 p-3">

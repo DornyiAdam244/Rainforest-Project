@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-    <header class="d-flex p-3 sticky-top mb-3">
+    <header class="d-flex p-3 sticky-top">
         <div class="logo">
             <div class="d-flex align-items-center">
                 <router-link to="/home"><img src="../assets/vue.svg" alt=""></router-link>
