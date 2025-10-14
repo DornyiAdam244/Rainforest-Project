@@ -17,9 +17,6 @@
                 <div class="collapse navbar-collapse w-100" id="navbarNav">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Főoldal</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">Térképoldal</a>
                         </li>
                         <li class="nav-item">
