@@ -22,13 +22,18 @@ const markSeen = (id) => {
     const next = new Set(seenAnimals.value)
     next.add(id)
     seenAnimals.value = next
-    modalInstance?.show()
   }
+}
+
+const openDetails = () => {
+  markSeen(focusedAnimalID.value)
+  modalInstance?.show()
 }
 
 const nextAnimal = () => {
   focusedAnimalID.value = (focusedAnimalID.value + 1) % total.value
   markSeen(focusedAnimalID.value)
+  modalInstance?.hide()
 }
 
 const previousAnimal = () => {
@@ -56,7 +61,8 @@ const randomAnimal = () => {
       Játékos, figyelemfelkeltő tudástárunk segít bárkinek tanulni interaktív módon -
       <em>képekkel, hangokkal és érdekességekkel!</em>
     </p>
-    <div class="col-12 col-md-4 col-sm-12 text-center d-flex flex-column align-items-center container-fluid gap-4">
+    <div
+      class="col-lg-6 col-12 col-md-8 col-sm-10 text-center d-flex flex-column align-items-center container-fluid gap-4">
       <h2 v-if="numberOfSeenAnimals < 20">Megtekintett állatok {{ numberOfSeenAnimals }}/20</h2>
       <h2 v-else>Kész!</h2>
       <div class="progress w-100" style="height: 20px;">
@@ -64,8 +70,9 @@ const randomAnimal = () => {
           role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
 
-      <img data-bs-toggle="modal" data-bs-target="#exampleModal" :src="getImageUrl(animals[focusedAnimalID].ImagePath)"
-        :alt="animals[focusedAnimalID].Name" class="img-fluid rounded shadow" />
+      <img title="Kattints az állat adataiért! :)" @click="openDetails()"
+        :src="getImageUrl(animals[focusedAnimalID].ImagePath)" :alt="animals[focusedAnimalID].Name"
+        class="img-fluid rounded shadow" />
       <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog-centered modal-lg modal-dialog">
           <div class="modal-content">
@@ -78,8 +85,9 @@ const randomAnimal = () => {
               <p class="fw-bold text-danger" v-if="animals[focusedAnimalID].isVenomous">Emberre veszélyes - mérgező!</p>
               <p class="fw-bold text-success" v-else>Emberre bár veszélyes lehet, de nem mérgező!</p>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger mx-auto d-block" data-bs-dismiss="modal">Bezárás</button>
+            <div class="modal-footer text-center">
+              <button type="button" class="btn bg-danger" data-bs-dismiss="modal">Bezárás</button>
+              <button @click="nextAnimal()" class="btn btn-success px-4">Következő</button>
             </div>
           </div>
         </div>
