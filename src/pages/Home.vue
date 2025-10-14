@@ -4,8 +4,6 @@
 
 <template>
   <section class="container-fluid d-flex flex-column align-items-center">
-    <h1 class="text-center">Esőerdő projekt</h1>
-
     <!-- CAROUSEL -->
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade container-fluid">
       <div class="carousel-indicators">
@@ -67,7 +65,7 @@
       <h2 class="text-center">Miért fontos?</h2>
       <div class="container">
         <article class="row mt-3">
-          <div class="col-lg-8 col-12 order-lg-1 order-2">
+          <div class="col-lg-8 col-12 order-lg-1 order-2 mt-md-0 mt-3">
             <div class="accordion" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -118,10 +116,12 @@
         <h3>🌱 1. Vásárolj tudatosan!</h3>
         <p>A mindennapi döntéseiddel is hatással vagy a bolygóra. Válaszd azokat a termékeket, amelyek fenntartható forrásból származnak, és nem járnak erdőirtással. Kerüld a pálmaolajat, az egzotikus fából készült tárgyakat és az egyszer használatos műanyagokat. Ha felelősen vásárolsz, máris teszel valamit az esőerdők védelméért.</p>
       </div>
+      <div class="text-center"><img class="cta-divider" src="../assets/leaf.png" alt=""></div>
       <div class="my-5">
         <h3>🔄 2. Csökkentsd az ökolábnyomod!</h3>
         <p>Minden apró szokás számít: használd kevesebbet az autót, spórolj az energiával, és figyelj oda a hulladék szelektálására. Ha kevesebb erőforrást fogyasztunk, kevesebb nyomást gyakorlunk a Föld erdeire és élővilágára. Gondolj arra, hogy amit ma megspórolsz, az a jövő generációinak marad meg. A változás mindig a hétköznapi döntéseknél kezdődik.</p>
       </div>
+      <div class="text-center"><img class="cta-divider" src="../assets/leaf.png" alt=""></div>
       <div class="my-5">
         <h3>📢 3. Terjeszd az üzenetet!</h3>
         <p>Sokan nem is tudják, milyen fontos szerepet játszanak az esőerdők a Föld életében. Mesélj róluk a barátaidnak, az iskolában vagy a közösségi médiában – minden beszélgetés közelebb visz a tudatosabb világ felé. Készíthetsz plakátot, posztot, vagy akár egy rövid videót is a témáról. Egy kis figyelemfelhívás sokakat inspirálhat a cselekvésre.</p>
@@ -132,7 +132,7 @@
 
     <div class="container-fluid text-center py-4">
       <h2>Térkép</h2>
-      <img class="map" src="../assets/vue.svg" alt="">
+      <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=-4.196917,%20-65.272158+(Amazon)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.mapsdirections.info/it/calcola-la-popolazione-su-una-mappa/">popolazione per regione Italia mappa</a></iframe></div>
     </div>
 
     <div class="container row text-center my-5 p-3">
@@ -202,5 +202,9 @@ h2 {
 }
 .reason img {
     border-radius: 12px;
+}
+
+.cta-divider {
+  max-width: 50px;
 }
 </style>

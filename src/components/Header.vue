@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-    <header class="d-flex p-3 sticky-top mb-3">
+    <header class="d-flex p-3 sticky-top">
         <div class="logo">
             <div class="d-flex align-items-center">
                 <router-link to="/home"><img src="../assets/vue.svg" alt=""></router-link>
@@ -16,9 +16,6 @@
                 </button>
                 <div class="collapse navbar-collapse w-100" id="navbarNav">
                     <ul class="navbar-nav w-100">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Főoldal</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Térképoldal</a>
                         </li>
