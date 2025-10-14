@@ -1,10 +1,13 @@
 <script setup></script>
 <template>
     <section class="footer-top">
-        <h3 class="text-center">Don't Leave Just Yet!</h3>
-        <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-success">Explore</button>
-            <button type="button" class="btn btn-outline-light">How can I help</button>
+        <h2 class="text-center mb-3">Partnereink</h2>
+        <div class="d-flex justify-content-around partners">
+            <img src="../assets/vue.svg" alt="">
+            <img src="../assets/partner1.png" alt="">
+            <img src="../assets/partner2.png" alt="">
+            <img src="../assets/partner3.png" alt="">
+            <img src="../assets/partner4.png" alt="">
         </div>
     </section>
     <footer>
@@ -13,28 +16,27 @@
             <section class="row">
                 <div class="contact-form col-lg-6">
                     <form>
-                        <h4>Tell Us What You Think</h4>
+                        <h4>Mondd el a véleményed!</h4>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <label for="exampleInputEmail1" class="form-label">Email cím</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <div id="emailHelp" class="form-text">Az email címedet soha nem osszuk meg harmadik féllel!</div>
                         </div>
                         <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
+                            <label for="message" class="form-label">Üzenet</label>
                             <textarea name="" id="message" class="form-control"></textarea>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">I Agree to <a href="#">Terms and
-                                    Conditions</a></label>
+                            <label class="form-check-label" for="exampleCheck1">Elfogadom a <a href="#">Felhasználói Feltételeket</a></label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Küldés</button>
                     </form>
                 </div>
                 <div class="footer-menu row col-lg-6">
                     <div class="col-lg-6">
-                        <h4>Contact</h4>
+                        <h4>Kontakt</h4>
                         <ul>
                             <li>
                                 <i class="bi bi-telephone-fill me-2"></i> +36 90 123 4567
@@ -61,7 +63,7 @@
                     </div>
                 </div>
             </section>
-            <div class="copyright">
+            <div class="copyright mt-auto">
                 <p class="m-0 text-center"> &copy; {{ new Date().getFullYear() }} - RainForest Project - All rights
                     reserved.
                 </p>
@@ -71,7 +73,7 @@
 </template>
 <style scoped>
 .footer-top {
-    background-color: #2b2b2b;
+    background-color: #cccccc49;
     color: #fff;
     padding: 30px;
 }
@@ -110,7 +112,13 @@ form {
     border-radius: 10px;
     box-shadow: #00000034 4px 4px 4px 5px;
     position: absolute;
-    top: -100px;
+    top: -75px;
+}
+
+.footer-top h4 {
+    color: #4b7637;
+    text-transform: uppercase;
+    font-size: 40px;
 }
 
 label a,
@@ -143,6 +151,13 @@ ul h4 {
     background-color: #00000028;
 }
 
+.partners img {
+    width: 7%;
+    object-fit: contain;
+    object-position: center;
+
+}
+
 /* footer section div:not(.contact-form div) {
     width: calc(100%/4);
 } */
@@ -157,9 +172,9 @@ a:hover {
 }
 
 .copyright {
-    margin-top: 40px;
     text-align: center;
-    bottom: 30px;
+    padding-top: 20px;
+    margin-bottom: 20px;
 }
 
 ul {
@@ -188,8 +203,11 @@ li {
     color: #fff;
     z-index: 2;
     width: 100%;
-    height: 100%;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0 !important;
     position: relative;
 }
 
