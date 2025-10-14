@@ -7,21 +7,27 @@
     <h1 class="text-center">Esőerdő projekt</h1>
 
     <!-- CAROUSEL -->
-    <div id="carouselExampleIndicators" class="carousel slide container-fluid">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade container-fluid">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../assets/placeholder.png" class="d-block w-100" alt="...">
+          <img src="../assets/carousel1.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block text-start z-1">
+                <h5>Lorem ipsum</h5>
+                <p>Lorem ispum dolor sit amet</p>
+                <button type="button" class="btn btnYellow mt-3">Megnézem</button>
+            </div>
         </div>
         <div class="carousel-item">
-          <img src="../assets/placeholder.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/placeholder.png" class="d-block w-100" alt="...">
+          <img src="../assets/carousel2.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block text-start">
+                <h5>Ipsum lorem</h5>
+                <p>Sequi deleniti officiis debitis odit quidem?</p>
+                <button type="button" class="btn btnYellow mt-3">Megnézem</button>
+            </div>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -113,8 +119,13 @@
 
 <style scoped>
 .carousel img {
-  max-height: 400px;
+  max-height: 600px;
   object-fit: cover;
+  filter: brightness(60%);
+}
+
+.carousel h5 {
+    font-size: 48px;
 }
 
 img,
