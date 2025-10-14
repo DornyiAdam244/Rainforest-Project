@@ -7,22 +7,6 @@
   src: url("Verdana.ttf");
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-}
-
-
 
 :root {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -77,6 +61,14 @@ h3 {
   padding-right: 20px;
   border-radius: 0 20px 0 20px;
   box-shadow: none !important;
+}
+
+.btn:active {
+  background-color: #4b7637a4 !important;
+}
+
+.btn:active {
+  background-color: #4b7637a4 !important;
 }
 
 .btn.outline {
