@@ -194,6 +194,9 @@ h2 {
     font-weight: 700;
     text-transform: uppercase;
 }
+.accordion-button:hover {
+    background-color: #105950 !important;
+}
 .accordion-item {
     border: 0 !important
 }

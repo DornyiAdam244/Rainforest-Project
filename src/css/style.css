@@ -81,10 +81,10 @@ h3 {
   color: #fccd07 !important
 }
 
-.btn:not(.footer-top button):hover {
-  background-color: #105950 !important;
-}
-
 .btnYellow:hover {
   background-color: #eb3c3c !important;
+}
+
+.btn:not(.footer-top button):hover {
+  background-color: #105950;
 }
