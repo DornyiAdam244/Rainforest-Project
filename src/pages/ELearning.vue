@@ -1,13 +1,44 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue'
 import animals from '../data/animals.json'
-const numberOfSeenAnimals = ref(1)
+
 const focusedAnimalID = ref(0)
+const total = computed(() => animals.length)
+
+const seenAnimals = ref(new Set([0]))
+
+const numberOfSeenAnimals = computed(() => seenAnimals.value.size)
+const percent = computed(() => Math.round((numberOfSeenAnimals.value / total.value) * 100))
+
+const getImageUrl = (file) => new URL(`../assets/${file}`, import.meta.url).href
+
+const markSeen = (id) => {
+  if (!seenAnimals.value.has(id)) {
+    const next = new Set(seenAnimals.value)
+    next.add(id)
+    seenAnimals.value = next
+  }
+}
 
 const nextAnimal = () => {
-  focusedAnimalID.value += 1
-  numberOfSeenAnimals.value += 1
+  focusedAnimalID.value = (focusedAnimalID.value + 1) % total.value
+  markSeen(focusedAnimalID.value)
 }
+
+const previousAnimal = () => {
+  focusedAnimalID.value = (focusedAnimalID.value - 1 + total.value) % total.value
+  markSeen(focusedAnimalID.value)
+}
+// If you have questions regarding this line don't 
+// I was told to use ChatGPT to make it clean code and refactor it nicely, well he did it --> from 13 lines to 8 so we're good or idk
+const randomAnimal = () => {
+  const unseen = Array.from({ length: total.value }, (_, i) => i).filter(i => !seenAnimals.value.has(i))
+  if (!unseen.length) return
+  const rand = unseen[Math.floor(Math.random() * unseen.length)]
+  focusedAnimalID.value = rand
+  markSeen(rand)
+}
+
 </script>
 
 <template>
@@ -19,19 +50,17 @@ const nextAnimal = () => {
       Játékos, figyelemfelkeltő tudástárunk segít bárkinek tanulni interaktív módon -
       <em>képekkel, hangokkal és érdekességekkel!</em>
     </p>
-
-    <div class="col-12 col-md-6 text-center d-flex flex-column align-items-center container-fluid gap-4">
+    <div class="col-12 col-md-4 col-sm-12 text-center d-flex flex-column align-items-center container-fluid gap-4">
       <h2>Megtekintett állatok {{ numberOfSeenAnimals }}/20</h2>
       <div class="progress w-100" style="height: 20px;">
-        <div class="progress-bar bg-success" :style="{ width: (numberOfSeenAnimals / 20 * 100) + '%' }"></div>
+        <div class="progress-bar bg-success" :style="{ '--bs-progress-bar-width': percent + '%', width: percent + '%' }"
+          role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
 
-
-
-      <img data-bs-toggle="modal" data-bs-target="#exampleModal" src="../assets/placeholder.png" alt="tanuljunk"
-        title="Mahagóniai tigris" class="img-fluid rounded shadow d-block">
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+      <img data-bs-toggle="modal" data-bs-target="#exampleModal" :src="getImageUrl(animals[focusedAnimalID].ImagePath)"
+        :alt="animals[focusedAnimalID].Name" class="img-fluid rounded shadow" />
+      <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog-centered modal-lg modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h2 class="fw-bold fs-5">Tigrincs</h2>
@@ -51,10 +80,10 @@ const nextAnimal = () => {
 
       <div class="row justify-content-around">
         <div class="col-auto">
-          <button class="btn btn-danger px-4">Előző</button>
+          <button @click="previousAnimal()" class="btn-danger bg-danger btn  px-4">Előző</button>
         </div>
         <div class="col-auto">
-          <button class="btn btn-warning px-4">Random</button>
+          <button @click="randomAnimal()" class="btn bg-warning px-4">Random</button>
         </div>
         <div class="col-auto">
           <button @click="nextAnimal()" class="btn btn-success px-4">Következő</button>
@@ -86,17 +115,7 @@ img:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
 
-.btn-danger {
-  background-color: var(--danger) !important;
-}
 
-.btn-warning {
-  background-color: var(--warning) !important;
-}
-
-.bg-success {
-  background-color: var(--success) !important;
-}
 
 .btn {
   font-size: 15px;

@@ -1,143 +1,142 @@
 [
-    {
-      "id": 1,
-      "Name": "Jaguár",
-      "ImagePath": "images/jaguar.jpg",
-      "Description": "A dél-amerikai esőerdők <strong>csúcsragadozója</strong>, amely <em>kiváló úszó és mászó</em>. Jellegzetes <strong>foltjai</strong> segítik az <strong>álcázásban</strong>.",
-      "isVenomous": false
-    },
-    {
-      "id": 2,
-      "Name": "Zöld anakonda",
-      "ImagePath": "images/green_anaconda.jpg",
-      "Description": "A világ egyik <strong>legnagyobb kígyója</strong>, amely akár <strong>8 méteresre</strong> is megnőhet. <strong>Víz közelében él</strong>, és <em>főként halakkal, madarakkal táplálkozik</em>.",
-      "isVenomous": false
-    },
-    {
-      "id": 3,
-      "Name": "Nyílméregbéka",
-      "ImagePath": "images/poison_dart_frog.jpg",
-      "Description": "Apró, <strong>színes béka</strong>, amely <em>erős mérget választ ki</em> a bőrén. Feltűnő <strong>színei</strong> <em>figyelmeztetik</em> a ragadozókat a veszélyre.",
-      "isVenomous": true
-    },
-    {
-      "id": 4,
-      "Name": "Tukán",
-      "ImagePath": "images/toucan.jpg",
-      "Description": "<strong>Nagy, színes csőréről</strong> ismert madár. <em>Főként gyümölcsöket eszik</em>, és fontos szerepe van a <strong>magok terjesztésében</strong>.",
-      "isVenomous": false
-    },
-    {
-      "id": 5,
-      "Name": "Orángután",
-      "ImagePath": "images/orangutan.jpg",
-      "Description": "A <strong>borneói</strong> és <strong>szumátrai</strong> esőerdők lakója. Rendkívül <strong>intelligens főemlős</strong>, aki <em>eszközöket is képes használni</em>.",
-      "isVenomous": false
-    },
-    {
-      "id": 6,
-      "Name": "Lajhár",
-      "ImagePath": "images/sloth.jpg",
-      "Description": "<strong>Lassan mozgó</strong>, <strong>fán élő</strong> emlős, amely <em>szinte egész nap pihen</em>. Kíméletes <em>mozgása</em> segít <strong>elkerülni a ragadozókat</strong>.",
-      "isVenomous": false
-    },
-    {
-      "id": 7,
-      "Name": "Amazonasi folyami delfin",
-      "ImagePath": "images/amazon_river_dolphin.jpg",
-      "Description": "A <strong>rózsaszín delfinnek</strong> is nevezett faj az <strong>Amazonas folyóban</strong> él. Különleges <em>alkalmazkodása</em> lehetővé teszi, hogy <em>zavaros vízben is tájékozódjon</em>.",
-      "isVenomous": false
-    },
-    {
-      "id": 8,
-      "Name": "Pillangóhal",
-      "ImagePath": "images/butterflyfish.jpg",
-      "Description": "<strong>Színpompás hal</strong>, amely a <strong>korallzátonyok</strong> és sekély vizek lakója. Gyakran <em>párban úszik</em>.",
-      "isVenomous": false
-    },
-    {
-      "id": 9,
-      "Name": "Papagáj",
-      "ImagePath": "images/parrot.jpg",
-      "Description": "<strong>Színes</strong>, <strong>hangutánzó</strong> madár, amely <em>csoportokban él</em> és <strong>nagyon intelligens</strong>. Segíti a növények szaporodását a <strong>magok terjesztésével</strong>.",
-      "isVenomous": false
-    },
-    {
-      "id": 10,
-      "Name": "Csimpánz",
-      "ImagePath": "images/chimpanzee.jpg",
-      "Description": "Az ember <strong>legközelebbi rokona</strong>, aki <em>eszközöket is használ</em> és <strong>bonyolult társas viselkedést</strong> mutat.",
-      "isVenomous": false
-    },
-    {
-      "id": 11,
-      "Name": "Közönséges óriáskígyó",
-      "ImagePath": "images/boa_constrictor.jpg",
-      "Description": "<strong>Nagytestű kígyó</strong>, amely <em>megfojtja zsákmányát</em>. Főként <em>éjszaka vadászik</em> kisebb emlősökre és madarakra.",
-      "isVenomous": false
-    },
-    {
-      "id": 12,
-      "Name": "Madárpók",
-      "ImagePath": "images/tarantula.jpg",
-      "Description": "<strong>Szőrös, nagyméretű pók</strong>, amely <em>főként rovarokat és kisebb gerinceseket ejt el</em>. Csípése <strong>ritkán veszélyes</strong> emberre.",
-      "isVenomous": true
-    },
-    {
-      "id": 13,
-      "Name": "Zöld fa piton",
-      "ImagePath": "images/green_tree_python.jpg",
-      "Description": "A pápua és ausztrál esőerdők egyik <strong>legszebb kígyója</strong>. <strong>Fákon él</strong>, <em>zöld színe</em> segít <strong>elrejtőzni</strong> a lombkoronában.",
-      "isVenomous": false
-    },
-    {
-      "id": 14,
-      "Name": "Pápaszemes kajmán",
-      "ImagePath": "images/caiman.jpg",
-      "Description": "<strong>Kisebb testű krokodilféle</strong>, amely <strong>folyókban és mocsarakban</strong> él. Fontos szerepe van az <strong>ökoszisztéma egyensúlyában</strong>.",
-      "isVenomous": false
-    },
-    {
-      "id": 15,
-      "Name": "Okapi",
-      "ImagePath": "images/okapi.jpg",
-      "Description": "A <strong>zsiráf távoli rokona</strong>, amely a <strong>kongói esőerdő mélyén</strong> él. <em>Széles nyelve</em> segíti a <strong>levelek leszedését</strong>.",
-      "isVenomous": false
-    },
-    {
-      "id": 16,
-      "Name": "Szivárványos boa",
-      "ImagePath": "images/rainbow_boa.jpg",
-      "Description": "Nevét a bőrén visszaverődő <strong>irizáló fényről</strong> kapta. <strong>Békés kígyó</strong>, amely <em>fákon és talajon is vadászik</em>.",
-      "isVenomous": false
-    },
-    {
-      "id": 17,
-      "Name": "Kolibri",
-      "ImagePath": "images/hummingbird.jpg",
-      "Description": "A világ <strong>legkisebb madara</strong>, amely képes a levegőben <em>egy helyben lebegni</em>. Fontos <strong>beporzó</strong> az esőerdőkben.",
-      "isVenomous": false
-    },
-    {
-      "id": 18,
-      "Name": "Tapír",
-      "ImagePath": "images/tapir.jpg",
-      "Description": "<strong>Nagytestű, békés növényevő</strong>, amely gyakran jár <strong>víz közelében</strong>. Jelentős szerepe van a <strong>magok terjesztésében</strong>.",
-      "isVenomous": false
-    },
-    {
-      "id": 19,
-      "Name": "Levelibéka",
-      "ImagePath": "images/tree_frog.jpg",
-      "Description": "<strong>Zöld bőre</strong> és <strong>tapadókorongos lába</strong> <em>segíti a mászásban</em>. Nedves <strong>leveleken él</strong>, és <em>rovarokkal táplálkozik</em>.",
-      "isVenomous": false
-    },
-    {
-      "id": 20,
-      "Name": "Piros szárnyú skorpió",
-      "ImagePath": "images/red_tailed_scorpion.jpg",
-      "Description": "Az esőerdők <strong>aljnövényzetében</strong> élő skorpió, amely <em>csípésével védekezik</em> a ragadozók ellen.",
-      "isVenomous": true
-    }
-  ]
-  
+  {
+    "id": 1,
+    "Name": "Jaguár",
+    "ImagePath": "jaguar.png",
+    "Description": "A dél-amerikai esőerdők <strong>csúcsragadozója</strong>, amely <em>kiváló úszó és mászó</em>. Jellegzetes <strong>foltjai</strong> segítik az <strong>álcázásban</strong>.",
+    "isVenomous": false
+  },
+  {
+    "id": 2,
+    "Name": "Zöld anakonda",
+    "ImagePath": "green_anaconda.png",
+    "Description": "A világ egyik <strong>legnagyobb kígyója</strong>, amely akár <strong>8 méteresre</strong> is megnőhet. <strong>Víz közelében él</strong>, és <em>főként halakkal, madarakkal táplálkozik</em>.",
+    "isVenomous": false
+  },
+  {
+    "id": 3,
+    "Name": "Nyílméregbéka",
+    "ImagePath": "poison_dart_frog.png",
+    "Description": "Apró, <strong>színes béka</strong>, amely <em>erős mérget választ ki</em> a bőrén. Feltűnő <strong>színei</strong> <em>figyelmeztetik</em> a ragadozókat a veszélyre.",
+    "isVenomous": true
+  },
+  {
+    "id": 4,
+    "Name": "Tukán",
+    "ImagePath": "toucan.png",
+    "Description": "<strong>Nagy, színes csőréről</strong> ismert madár. <em>Főként gyümölcsöket eszik</em>, és fontos szerepe van a <strong>magok terjesztésében</strong>.",
+    "isVenomous": false
+  },
+  {
+    "id": 5,
+    "Name": "Orángután",
+    "ImagePath": "orangutan.png",
+    "Description": "A <strong>borneói</strong> és <strong>szumátrai</strong> esőerdők lakója. Rendkívül <strong>intelligens főemlős</strong>, aki <em>eszközöket is képes használni</em>.",
+    "isVenomous": false
+  },
+  {
+    "id": 6,
+    "Name": "Lajhár",
+    "ImagePath": "sloth.png",
+    "Description": "<strong>Lassan mozgó</strong>, <strong>fán élő</strong> emlős, amely <em>szinte egész nap pihen</em>. Kíméletes <em>mozgása</em> segít <strong>elkerülni a ragadozókat</strong>.",
+    "isVenomous": false
+  },
+  {
+    "id": 7,
+    "Name": "Amazonasi folyami delfin",
+    "ImagePath": "amazon_river_dolphin.png",
+    "Description": "A <strong>rózsaszín delfinnek</strong> is nevezett faj az <strong>Amazonas folyóban</strong> él. Különleges <em>alkalmazkodása</em> lehetővé teszi, hogy <em>zavaros vízben is tájékozódjon</em>.",
+    "isVenomous": false
+  },
+  {
+    "id": 8,
+    "Name": "Piranha",
+    "ImagePath": "piranha.png",
+    "Description": "<strong>Hús- és mindenevő hal</strong>, amely az <strong>amazonasi esőerdő folyóiban</strong> él. Éles <em>fogairól</em> és <em>csoportos vadászatáról</em> ismert, de legtöbbször kisebb halakkal vagy gyümölcsökkel táplálkozik.",
+    "isVenomous": false
+  },
+  {
+    "id": 9,
+    "Name": "Papagáj",
+    "ImagePath": "parrot.png",
+    "Description": "<strong>Színes</strong>, <strong>hangutánzó</strong> madár, amely <em>csoportokban él</em> és <strong>nagyon intelligens</strong>. Segíti a növények szaporodását a <strong>magok terjesztésével</strong>.",
+    "isVenomous": false
+  },
+  {
+    "id": 10,
+    "Name": "Csimpánz",
+    "ImagePath": "chimpanzee.png",
+    "Description": "Az ember <strong>legközelebbi rokona</strong>, aki <em>eszközöket is használ</em> és <strong>bonyolult társas viselkedést</strong> mutat.",
+    "isVenomous": false
+  },
+  {
+    "id": 11,
+    "Name": "Közönséges óriáskígyó",
+    "ImagePath": "boa_constrictor.png",
+    "Description": "<strong>Nagytestű kígyó</strong>, amely <em>megfojtja zsákmányát</em>. Főként <em>éjszaka vadászik</em> kisebb emlősökre és madarakra.",
+    "isVenomous": false
+  },
+  {
+    "id": 12,
+    "Name": "Madárpók",
+    "ImagePath": "tarantula.png",
+    "Description": "<strong>Szőrös, nagyméretű pók</strong>, amely <em>főként rovarokat és kisebb gerinceseket ejt el</em>. Csípése <strong>ritkán veszélyes</strong> emberre.",
+    "isVenomous": true
+  },
+  {
+    "id": 13,
+    "Name": "Zöld fa piton",
+    "ImagePath": "green_tree_python.png",
+    "Description": "A pápua és ausztrál esőerdők egyik <strong>legszebb kígyója</strong>. <strong>Fákon él</strong>, <em>zöld színe</em> segít <strong>elrejtőzni</strong> a lombkoronában.",
+    "isVenomous": false
+  },
+  {
+    "id": 14,
+    "Name": "Pápaszemes kajmán",
+    "ImagePath": "caiman.png",
+    "Description": "<strong>Kisebb testű krokodilféle</strong>, amely <strong>folyókban és mocsarakban</strong> él. Fontos szerepe van az <strong>ökoszisztéma egyensúlyában</strong>.",
+    "isVenomous": false
+  },
+  {
+    "id": 15,
+    "Name": "Okapi",
+    "ImagePath": "okapi.png",
+    "Description": "A <strong>zsiráf távoli rokona</strong>, amely a <strong>kongói esőerdő mélyén</strong> él. <em>Széles nyelve</em> segíti a <strong>levelek leszedését</strong>.",
+    "isVenomous": false
+  },
+  {
+    "id": 16,
+    "Name": "Szivárványos boa",
+    "ImagePath": "rainbow_boa.png",
+    "Description": "Nevét a bőrén visszaverődő <strong>irizáló fényről</strong> kapta. <strong>Békés kígyó</strong>, amely <em>fákon és talajon is vadászik</em>.",
+    "isVenomous": false
+  },
+  {
+    "id": 17,
+    "Name": "Kolibri",
+    "ImagePath": "hummingbird.png",
+    "Description": "A világ <strong>legkisebb madara</strong>, amely képes a levegőben <em>egy helyben lebegni</em>. Fontos <strong>beporzó</strong> az esőerdőkben.",
+    "isVenomous": false
+  },
+  {
+    "id": 18,
+    "Name": "Tapír",
+    "ImagePath": "tapir.png",
+    "Description": "<strong>Nagytestű, békés növényevő</strong>, amely gyakran jár <strong>víz közelében</strong>. Jelentős szerepe van a <strong>magok terjesztésében</strong>.",
+    "isVenomous": false
+  },
+  {
+    "id": 19,
+    "Name": "Levelibéka",
+    "ImagePath": "tree_frog.png",
+    "Description": "<strong>Zöld bőre</strong> és <strong>tapadókorongos lába</strong> <em>segíti a mászásban</em>. Nedves <strong>leveleken él</strong>, és <em>rovarokkal táplálkozik</em>.",
+    "isVenomous": false
+  },
+  {
+    "id": 20,
+    "Name": "Piros szárnyú skorpió",
+    "ImagePath": "red_tailed_scorpion.png",
+    "Description": "Az esőerdők <strong>aljnövényzetében</strong> élő skorpió, amely <em>csípésével védekezik</em> a ragadozók ellen.",
+    "isVenomous": true
+  }
+]
