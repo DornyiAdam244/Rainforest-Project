@@ -15,18 +15,18 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="../assets/carousel1.webp" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block text-start z-1">
+          <div class="carousel-caption d-block text-center text-md-start">
                 <h5>Lorem ipsum</h5>
                 <p>Lorem ispum dolor sit amet</p>
-                <button type="button" class="btn btnYellow mt-3">Megnézem</button>
+                <button type="button" class="btn btnYellow mt-3 mb-md-0 mb-3">Megnézem</button>
             </div>
         </div>
         <div class="carousel-item">
           <img src="../assets/carousel2.webp" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block text-start">
+          <div class="carousel-caption d-block text-center text-md-start">
                 <h5>Ipsum lorem</h5>
                 <p>Sequi deleniti officiis debitis odit quidem?</p>
-                <button type="button" class="btn btnYellow mt-3">Megnézem</button>
+                <button type="button" class="btn btnYellow mt-3 mb-md-0 mb-3">Megnézem</button>
             </div>
         </div>
       </div>
@@ -41,8 +41,8 @@
     </div>
 
     <!-- 3 KÁRTYÁS BLOKK -->
-    <div class="container row text-center mt-3">
-      <h2>Célunk bemutatása</h2>
+    <div class="container row text-center mt-5">
+      <h2 class="mb-5">Célunk bemutatása</h2>
       <div class="col-lg-4 col-12">
         <h3>🌳 Esőerdők fajtái</h3>
         <p>Az esőerdők nem egyformák: vannak trópusi, szubtrópusi és mérsékelt övi erdők is. Minden típus más éghajlathoz, növényzethez és állatvilághoz alkalmazkodott. Fedezd fel, hol találhatók, és mi teszi őket különlegessé!</p>
@@ -60,7 +60,7 @@
     <button type="button" class="btn">Többet</button>
 
     <!-- MIÉRT FONTOS -->
-    <div class="container-fluid mt-3 py-4">
+    <div class="container-fluid mt-5 py-4">
       <h2 class="text-center">Miért fontos?</h2>
       <div class="container">
         <article class="row mt-3">
@@ -144,5 +144,9 @@ section.container-fluid {
 
 .map {
   width: 25%;
+}
+
+h2 {
+    font-size: 36px !important;
 }
 </style>
