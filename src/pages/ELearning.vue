@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import animals from '../data/animals.json'
 
 const focusedAnimalID = ref(0)
@@ -11,12 +11,18 @@ const numberOfSeenAnimals = computed(() => seenAnimals.value.size)
 const percent = computed(() => Math.round((numberOfSeenAnimals.value / total.value) * 100))
 
 const getImageUrl = (file) => new URL(`../assets/${file}`, import.meta.url).href
+let modalInstance = null
+onMounted(() => {
+  const modalEl = document.getElementById('exampleModal')
+  modalInstance = new window.bootstrap.Modal(modalEl)
+})
 
 const markSeen = (id) => {
   if (!seenAnimals.value.has(id)) {
     const next = new Set(seenAnimals.value)
     next.add(id)
     seenAnimals.value = next
+    modalInstance?.show()
   }
 }
 
@@ -51,7 +57,8 @@ const randomAnimal = () => {
       <em>képekkel, hangokkal és érdekességekkel!</em>
     </p>
     <div class="col-12 col-md-4 col-sm-12 text-center d-flex flex-column align-items-center container-fluid gap-4">
-      <h2>Megtekintett állatok {{ numberOfSeenAnimals }}/20</h2>
+      <h2 v-if="numberOfSeenAnimals < 20">Megtekintett állatok {{ numberOfSeenAnimals }}/20</h2>
+      <h2 v-else>Kész!</h2>
       <div class="progress w-100" style="height: 20px;">
         <div class="progress-bar bg-success" :style="{ '--bs-progress-bar-width': percent + '%', width: percent + '%' }"
           role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"></div>
@@ -67,8 +74,9 @@ const randomAnimal = () => {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p v-html="animals[focusedAnimalID].Description" class="text-center fw-bold lh-lg">
-              </p>
+              <p v-html="animals[focusedAnimalID].Description" class="text-center fw-bold lh-lg"></p>
+              <p class="fw-bold text-danger" v-if="animals[focusedAnimalID].isVenomous">Emberre veszélyes - mérgező!</p>
+              <p class="fw-bold text-success" v-else>Emberre bár veszélyes lehet, de nem mérgező!</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger mx-auto d-block" data-bs-dismiss="modal">Bezárás</button>
@@ -89,7 +97,13 @@ const randomAnimal = () => {
           <button @click="nextAnimal()" class="btn btn-success px-4">Következő</button>
         </div>
       </div>
+      <div class="row m-5">
+        <h2 class="text-center fw-bold">Tesztelnéd tudásod?</h2>
 
+        <router-link to="/quiz"> <button class="btn w-50 d-block mx-auto mt-5">Vigyél oda!</button></router-link>
+
+
+      </div>
     </div>
 
     <router-view />
