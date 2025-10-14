@@ -23,7 +23,7 @@
                             <router-link to="/elearning"><a class="nav-link" href="#">E-learning</a></router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Kvízjáték</a>
+                            <router-link to="/quiz"><a class="nav-link" href="#">Kvíz játék</a></router-link>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Kontakt</a>
