@@ -34,7 +34,7 @@ const validate = (name) => {
 
 const searchForAnimal = () => {
   if (!validate(query.value).valid) {
-    alert("Valami nem jo gec")
+    alert(validate(query.value).message)
     return
   }
   queries.value = animals.filter(a => a.Name.toLowerCase().includes(query.value.toLowerCase()))
