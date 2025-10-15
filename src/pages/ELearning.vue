@@ -6,9 +6,12 @@ const focusedAnimalID = ref(0)
 const total = computed(() => animals.length)
 
 const seenAnimals = ref(new Set([0]))
+const query = ref("")
+const queries = ref([])
+const select = ref("")
 
 const numberOfSeenAnimals = computed(() => seenAnimals.value.size)
-const percent = computed(() => Math.round((numberOfSeenAnimals.value / total.value) * 100))
+const scrollBarPercent = computed(() => Math.round((numberOfSeenAnimals.value / total.value) * 100))
 
 const getImageUrl = (file) => new URL(`../assets/${file}`, import.meta.url).href
 let modalInstance = null
@@ -16,6 +19,32 @@ onMounted(() => {
   const modalEl = document.getElementById('exampleModal')
   modalInstance = new window.bootstrap.Modal(modalEl)
 })
+
+const validate = (name) => {
+
+  if (!name || name.trim() === '') {
+    return { valid: false, message: 'Add meg az állat nevét!' }
+  }
+  const pattern = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű\s-]+$/
+  if (!pattern.test(name.trim())) {
+    return { valid: false, message: 'A név csak betűket és szóközöket tartalmazhat!' }
+  }
+  return { valid: true, message: '✅ Érvényes név' }
+}
+
+const searchForAnimal = () => {
+  if (!validate(query.value).valid) {
+    alert("Valami nem jo gec")
+    return
+  }
+  queries.value = animals.filter(a => a.Name.toLowerCase().includes(query.value.toLowerCase()))
+  console.log(queries.value);
+
+  if (queries.value.length == 1) {
+    focusedAnimalID.value = queries.value[0].id - 1
+    markSeen(focusedAnimalID.value)
+  }
+}
 
 const markSeen = (id) => {
   if (!seenAnimals.value.has(id)) {
@@ -41,15 +70,6 @@ const previousAnimal = () => {
   focusedAnimalID.value = (focusedAnimalID.value - 1 + total.value) % total.value
   markSeen(focusedAnimalID.value)
 }
-// If you have questions regarding this line don't 
-// I was told to use ChatGPT to make it clean code and refactor it nicely, well he did it --> from 13 lines to 8 so we're good or idk
-const randomAnimal = () => {
-  const unseen = Array.from({ length: total.value }, (_, i) => i).filter(i => !seenAnimals.value.has(i))
-  if (!unseen.length) return
-  const rand = unseen[Math.floor(Math.random() * unseen.length)]
-  focusedAnimalID.value = rand
-  markSeen(rand)
-}
 
 </script>
 
@@ -64,7 +84,8 @@ const randomAnimal = () => {
         <div class="modal-body">
           <h2 class="fw-bold fs-3 text-center">{{ animals[focusedAnimalID].Name }}</h2>
           <p v-html="animals[focusedAnimalID].Description" class="text-center fw-bold lh-lg"></p>
-          <p class="fw-bold text-danger text-center" v-if="animals[focusedAnimalID].isVenomous">Emberre veszélyes - mérgező!</p>
+          <p class="fw-bold text-danger text-center" v-if="animals[focusedAnimalID].isVenomous">Emberre veszélyes -
+            mérgező!</p>
           <p class="fw-bold text-success text-center" v-else>Emberre bár veszélyes lehet, de nem mérgező!</p>
         </div>
         <div class="modal-footer text-center">
@@ -91,10 +112,27 @@ const randomAnimal = () => {
           Megtekintett állatok {{ numberOfSeenAnimals }}/20
         </h2>
         <h2 v-else class="card-title text-success fw-bold mb-2">Kész!</h2>
+        <form @submit.prevent="searchForAnimal()" class="w-50">
+          <div class="mb-2 input-group">
+            <span @click="searchForAnimal()" class="input-group-text" id="basic-addon1">
+              <bi class="bi-search"></bi>
+            </span>
+            <input v-model="query" placeholder='Pl. "kék" vagy "vipera"' type="text" class="form-control"
+              id="animalName">
+          </div>
+          <ul v-if="queries.length > 1" class="list-group">
+            <li :class="{ active: focusedAnimalID === value.id - 1 }" v-for="(value, index) in queries" :key="index"
+              class="list-group-item list-group-item-action"
+              @click="focusedAnimalID = value.id - 1; markSeen(focusedAnimalID)">
+              <p class="m-0 p-0">{{ value.Name }}</p>
+            </li>
+          </ul>
 
-        <div class="progress w-100" style="height: 12px;">
-          <div class="progress-bar bg-success" :style="{ width: percent + '%' }" role="progressbar"
-            :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"></div>
+        </form>
+
+        <div class="progress w-100 mb-2" style="height: 12px;">
+          <div class="progress-bar bg-success" :style="{ width: scrollBarPercent + '%' }" role="progressbar"
+            :aria-valuenow="scrollBarPercent" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
         <div class="position-relative w-100">
@@ -111,12 +149,6 @@ const randomAnimal = () => {
             <i class="bi bi-chevron-right"></i>
           </button>
         </div>
-
-        <!--<div class="d-flex justify-content-between w-100 mt-3 gap-2">
-          <button @click="randomAnimal()" class="btn bg-warning text-white btn-light arrow-btn  flex-fill fw-bold text-dark">Random</button>
-        </div>-->
-
-
       </div>
     </div>
     <div class="mt-5 w-100 text-center">
@@ -124,15 +156,11 @@ const randomAnimal = () => {
       <p class="mb-3 lead">Képzeld el, hogy egy dzsungelben jársz!
         Interaktív, „Would You Rather?” stílusú kvízünkben izgalmas döntések várnak, miközben megismered a mérgező
         állatok rejtett titkait.
-
       </p>
-
-
       <router-link to="/quiz">
         <button class="btn btn-outline-primary w-50 fw-bold">Benne vagyok!</button>
       </router-link>
     </div>
-
     <router-view />
   </section>
 
@@ -156,11 +184,9 @@ const randomAnimal = () => {
 
 .arrow-btn:hover {
   background-color: rgba(76, 175, 80, 0.8);
-  /* zöldes hover */
   color: white;
   transform: scale(1.1);
 }
-
 
 .card {
   border: none;
@@ -194,5 +220,14 @@ img:hover {
 .btn {
   font-size: 15px;
   font-weight: 600;
+}
+
+.bi-search {
+  cursor: pointer;
+}
+
+.active.list-group-item.list-group-item-action {
+  background-color: var(--bg-main);
+  border-color: var(--text-main);
 }
 </style>
