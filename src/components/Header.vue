@@ -29,7 +29,7 @@
                             <a href="#" class="nav-link">Kontakt</a>
                         </li>
                         <li class="nav-item ms-lg-auto me-lg-2 mb-2 mb-lg-0 mb-xl-0">
-                            <button class="btn" type="button">Sign Up</button>
+                            <router-link to="/registry"><button class="btn" type="button">Sign Up</button></router-link>
                         </li>
                         <li class="nav-item">
                             <button class="btn outline" type="button">Sign in</button>
