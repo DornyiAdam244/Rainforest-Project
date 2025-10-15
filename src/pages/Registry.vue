@@ -4,6 +4,9 @@ import { getFormValidationResult } from '../utilities/utility';
 import { addUser } from '../utilities/crudUtility';
 import User from '../data/user';
 import router from '../router/index';
+import Toast from '../data/toast';
+
+const toast = new Toast("liveToast");
 
 let validationData = null;
 
@@ -18,15 +21,21 @@ watchEffect(() => {
 function postUserDataOrShowNegativeFeedback() {
     if (validationData.isNameCorrect && validationData.passwordData.isPasswordCorrect && validationData.isRepeatPasswordCorrect) {
         addUser(new User(name.value, password.value)).then(() => {
-            router.push("/home")
+            toast.setTitle("Sikeres Regisztráció!");
+            toast.setMessage("Most vissza kerülsz a főoldalra, ahol bejelentkezhetsz az imént megadott adatokkal.");
+            toast.setIcon("bi-check2-all", "text-success");
+            toast.toastOnHide(() => router.push("/home"));
+            toast.show()
         }).catch(() => {
             // Error Toast or modal
-            alert("Hiba az adatbázis elérésekor!");
         });
     }
     else {
         // Feedback Toast or Modal
-        alert("Nézd meg az űrlap mezőit!");
+        toast.setTitle("Helytelen űrlap adatok!");
+        toast.setMessage("Nézd meg az űrlap mezőit!");
+        toast.setIcon("bi-exclamation", "text-danger");
+        toast.show();
     }
 }
 

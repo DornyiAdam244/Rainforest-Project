@@ -102,3 +102,7 @@ h3 {
 .btn:not(.footer-top button):hover {
   background-color: #105950;
 }
+
+.toast i {
+  font-size: 25px;
+}
