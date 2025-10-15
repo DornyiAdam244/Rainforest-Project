@@ -19,6 +19,7 @@ onMounted(() => {
 
 const markSeen = (id) => {
   if (!seenAnimals.value.has(id)) {
+    // We have to reset the memory address for Vue to react(no pun intended)
     const next = new Set(seenAnimals.value)
     next.add(id)
     seenAnimals.value = next
@@ -53,91 +54,142 @@ const randomAnimal = () => {
 </script>
 
 <template>
-  <section class="container-fluid d-flex flex-column align-items-center gap-4 py-5">
-    <h1 class="text-center fw-bold">E-learning</h1>
-
-    <p class="text-center fw-bold lead text-muted lh-lg col-10 col-md-8">
-      Fedezd fel velünk az <strong>esőerdők különleges állatvilágát!</strong><br />
-      Játékos, figyelemfelkeltő tudástárunk segít bárkinek tanulni interaktív módon -
-      <em>képekkel, hangokkal és érdekességekkel!</em>
-    </p>
-    <div
-      class="col-lg-6 col-12 col-md-8 col-sm-10 text-center d-flex flex-column align-items-center container-fluid gap-4">
-      <h2 v-if="numberOfSeenAnimals < 20">Megtekintett állatok {{ numberOfSeenAnimals }}/20</h2>
-      <h2 v-else>Kész!</h2>
-      <div class="progress w-100" style="height: 20px;">
-        <div class="progress-bar bg-success" :style="{ '--bs-progress-bar-width': percent + '%', width: percent + '%' }"
-          role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-
-      <img title="Kattints az állat adataiért! :)" @click="openDetails()"
-        :src="getImageUrl(animals[focusedAnimalID].ImagePath)" :alt="animals[focusedAnimalID].Name"
-        class="img-fluid rounded shadow" />
-      <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog-centered modal-lg modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="fw-bold fs-5">{{ animals[focusedAnimalID].Name }}</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p v-html="animals[focusedAnimalID].Description" class="text-center fw-bold lh-lg"></p>
-              <p class="fw-bold text-danger" v-if="animals[focusedAnimalID].isVenomous">Emberre veszélyes - mérgező!</p>
-              <p class="fw-bold text-success" v-else>Emberre bár veszélyes lehet, de nem mérgező!</p>
-            </div>
-            <div class="modal-footer text-center">
-              <button type="button" class="btn bg-danger" data-bs-dismiss="modal">Bezárás</button>
-              <button @click="nextAnimal()" class="btn btn-success px-4">Következő</button>
-            </div>
-          </div>
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog-centered modal-lg modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Információ</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-
-
-      <div class="row justify-content-around">
-        <div class="col-auto">
-          <button @click="previousAnimal()" class="btn-danger bg-danger btn  px-4">Előző</button>
+        <div class="modal-body">
+          <h2 class="fw-bold fs-3 text-center">{{ animals[focusedAnimalID].Name }}</h2>
+          <p v-html="animals[focusedAnimalID].Description" class="text-center fw-bold lh-lg"></p>
+          <p class="fw-bold text-danger text-center" v-if="animals[focusedAnimalID].isVenomous">Emberre veszélyes - mérgező!</p>
+          <p class="fw-bold text-success text-center" v-else>Emberre bár veszélyes lehet, de nem mérgező!</p>
         </div>
-        <div class="col-auto">
-          <button @click="randomAnimal()" class="btn bg-warning px-4">Random</button>
-        </div>
-        <div class="col-auto">
+        <div class="modal-footer text-center">
+          <button type="button" class="btn bg-danger" data-bs-dismiss="modal">Bezárás</button>
           <button @click="nextAnimal()" class="btn btn-success px-4">Következő</button>
         </div>
       </div>
-      <div class="row m-5">
-        <h2 class="text-center fw-bold">Tesztelnéd tudásod?</h2>
+    </div>
+  </div>
 
-        <router-link to="/quiz"> <button class="btn w-50 d-block mx-auto mt-5">Vigyél oda!</button></router-link>
+  <section class="container py-5 d-flex flex-column align-items-center gap-4">
+    <h1 class="fw-bold text-center mb-4">E-learning</h1>
+
+    <p class="text-center fw-bold lead text-muted lh-lg col-10 col-md-8">
+      Fedezd fel velünk az <strong>esőerdők különleges állatvilágát!</strong><br />
+      Játékos, figyelemfelkeltő tudástárunk segít bárkinek tanulni interaktív módon –
+      <em>képekkel, hangokkal és érdekességekkel!</em>
+    </p>
+
+    <div class="card text-center shadow-lg col-12 col-md-8 col-lg-5">
+      <div class="card-body d-flex flex-column align-items-center gap-3 p-4">
+
+        <h2 v-if="numberOfSeenAnimals < 20" class="card-title fw-bold mb-2">
+          Megtekintett állatok {{ numberOfSeenAnimals }}/20
+        </h2>
+        <h2 v-else class="card-title text-success fw-bold mb-2">Kész!</h2>
+
+        <div class="progress w-100" style="height: 12px;">
+          <div class="progress-bar bg-success" :style="{ width: percent + '%' }" role="progressbar"
+            :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <div class="position-relative w-100">
+          <img class="img-fluid rounded shadow-sm" title="Kattints az állat adataiért! :)" @click="openDetails()"
+            :src="getImageUrl(animals[focusedAnimalID].ImagePath)" :alt="animals[focusedAnimalID].Name" />
+
+          <button @click.stop="previousAnimal()"
+            class="btn btn-light position-absolute top-50 start-0 translate-middle-y arrow-btn ms-3">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+
+          <button @click.stop="nextAnimal()"
+            class="btn btn-light position-absolute top-50 end-0 translate-middle-y arrow-btn me-3">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+
+        <!--<div class="d-flex justify-content-between w-100 mt-3 gap-2">
+          <button @click="randomAnimal()" class="btn bg-warning text-white btn-light arrow-btn  flex-fill fw-bold text-dark">Random</button>
+        </div>-->
 
 
       </div>
     </div>
+    <div class="mt-5 w-100 text-center">
+      <h3 class="fw-bold mb-3">Tesztelnéd tudásod?</h3>
+      <p class="mb-3 lead">Képzeld el, hogy egy dzsungelben jársz!
+        Interaktív, „Would You Rather?” stílusú kvízünkben izgalmas döntések várnak, miközben megismered a mérgező
+        állatok rejtett titkait.
+
+      </p>
+
+
+      <router-link to="/quiz">
+        <button class="btn btn-outline-primary w-50 fw-bold">Benne vagyok!</button>
+      </router-link>
+    </div>
 
     <router-view />
   </section>
+
 </template>
 
 <style scoped>
+.btn-light {
+  border-radius: 5rem !important;
+  padding: 0px !important;
+}
+
+.arrow-btn {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+}
+
+.arrow-btn:hover {
+  background-color: rgba(76, 175, 80, 0.8);
+  /* zöldes hover */
+  color: white;
+  transform: scale(1.1);
+}
+
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  background-color: #ffffff;
+}
+
+.card-body {
+  border-radius: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
 img {
   object-fit: contain;
   width: 100%;
   height: auto;
-
-}
-
-img {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+}
+
+.card-title {
+  color: #4b7637
 }
 
 img:hover {
   transform: scale(1.03);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
-
-
 
 .btn {
   font-size: 15px;
