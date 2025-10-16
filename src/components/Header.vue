@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import { registeredUser, signOutUser } from '../utilities/utility';
+</script>
+
 <template>
     <header class="d-flex p-3 sticky-top">
         <div class="logo">
@@ -7,7 +10,7 @@
                 <small class="text-muted">A természet megőrzéséért</small>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg w-100 py-0 pe-0 ps-3 navbar-light">
+        <nav class="navbar navbar-expand-lg w-100 py-0 pe-0 ps-3 navbar-light d-flex align-items-center">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Esőerdő Projekt</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,12 +31,24 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">Kontakt</a>
                         </li>
-                        <li class="nav-item ms-lg-auto me-lg-2 mb-2 mb-lg-0 mb-xl-0">
-                            <router-link to="/registry"><button class="btn" type="button">Sign Up</button></router-link>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn outline" type="button">Sign in</button>
-                        </li>
+                        <div id="profile-options" class="dropdown ms-lg-auto" v-if="registeredUser">
+                            <a href="#" class="profile-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i> {{ registeredUser.getName() }}</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="dropdown-item">Előrehaladás</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" @click="signOutUser()" href="#">Kijelentkezés</a></li>
+                            </ul>
+                        </div>
+                        <div v-else class="ms-lg-auto registry d-lg-flex">
+                            <li class="nav-item me-lg-2 mb-2 mb-lg-0 mb-xl-0">
+                                <router-link to="/registry"><button class="btn" type="button">Sign Up</button></router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link to="/log-in"><button class="btn outline" type="button">Sign In</button></router-link>
+                            </li>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -46,23 +61,57 @@ header {
     box-shadow: 0 4px 6px #0000004d;
 }
 
-.logo img {
-  height: 40px;
-  margin-right: 10px;
+.profile-icon {
+    font-size: 30px;
 }
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
 .logo {
-  font-weight: bold;
-  font-size: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.nav-item a, .nav-item .btn {
+    white-space: nowrap;
 }
 
 .logo small {
     font-size: 10px;
 }
 
+
+.profile-icon {
+    color: #2b2b2b;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+.profile-icon i {
+    font-size: 30px !important;
+    margin-right: 10px;
+}
+
 .nav-link:hover {
-  color: #007b5e;
-  transform: scale(1.05);
-  transition: all 0.2s ease-in-out;
+    color: #007b5e;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+@media only screen and (min-width: 991px) {
+    #profile-options {
+        right: 35px;
+    }
 }
 
 </style>

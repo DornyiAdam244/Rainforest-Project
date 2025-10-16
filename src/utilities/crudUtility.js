@@ -16,5 +16,37 @@ async function addUser(user) {
     }
 }
 
+async function fetchUserId(id) {
+    try {
+        return await (await fetch(`${apiKey}/${id}`)).json();
+    }
+    catch (e) {
+        console.error(e);
+    }
+}
 
-export { addUser };
+async function fetchUsers() {
+    try {
+        const a = await (await fetch(apiKey)).json();
+        console.log(a);
+        
+        return a;
+    }
+    catch (e) {
+        console.error(e);
+    }
+}
+
+async function fetchUserByName(name) {
+    try {
+        const userList = await fetchUsers();
+        return userList.find(user => user.name == name);
+    }
+    catch (e) {
+        console.error(e);
+        
+    }
+}
+
+
+export { addUser, fetchUserId, fetchUserByName };
