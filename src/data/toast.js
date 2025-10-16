@@ -31,4 +31,18 @@ export default class Toast {
         toastIcon.classList.add(bsIconClass, "bi", bsColorClass);
     }
 
+    showErrorToast(title, message) {
+        this.setTitle(title);
+        this.setMessage(message);
+        this.setIcon("bi-exclamation", "text-danger");
+        this.show();
+    }
+    
+    showSuccessToast(title, message) {
+        this.setTitle(title);
+        this.setMessage(message);
+        this.setIcon("bi-check2-all", "text-success");
+        this.show();
+    }
+
 }
