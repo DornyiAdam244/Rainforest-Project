@@ -9,6 +9,11 @@ export default class User {
         this.#crudId = crudId || null;
     }
 
+    static userInstanceFromJSON(json) {
+        if (json) return new User(json.name, json.password, json.crudId);
+        return null;
+    }
+
     getCrudId = () => this.#crudId;
     getName = () => this.#name;
     getPassword = () => this.#password;
