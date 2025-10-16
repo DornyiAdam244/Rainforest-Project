@@ -11,8 +11,9 @@ const router = createRouter({
     { path: '/', name: 'home', component: Home },
     { path: '/quiz', name: 'quiz', component: Quiz },
     { path: '/elearning', name: 'elearning', component: ELearning },
-    { path: '/:pathMatch(.*)*', redirect: '/' },
-    {path: '/registry', name: 'registry', component: Registry}
+    {path: '/registry', name: 'registry', component: Registry, props: {register: true}},
+    {path: '/log-in', name: 'log-in', component: Registry, props: {register: false}},
+    { path: '/:pathMatch(.*)*', redirect: '/' }
   ],
   scrollBehavior: () => ({ top: 0 })
 });

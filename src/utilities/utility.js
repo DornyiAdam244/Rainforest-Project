@@ -1,5 +1,9 @@
+import { ref } from 'vue';
+
+const registeredUser = ref(null);
+
 function getPasswordFeedback(password) {
-    const feedback = { isPasswordCorrect: false, message: "", bsColorClass: "text-danger"};
+    const feedback = { isCorrect: false, message: "", bsColorClass: "text-danger" };
     if (password.length < 4) {
         feedback.message = "A jelszó túl rövid! Legalább 4 karaktert addj meg!";
     }
@@ -10,8 +14,8 @@ function getPasswordFeedback(password) {
         feedback.message = "A jelszó nem tartalmaz legalább 1 számot!";
     }
     else {
-        feedback.isPasswordCorrect = true;
-        switch(getPasswordStrengthText(password)) {
+        feedback.isCorrect = true;
+        switch (getPasswordStrengthText(password)) {
             case 0:
                 feedback.message = "Gyenge, esetleg valami hosszabb jelszó?";
                 feedback.bsColorClass = "text-danger-emphasis";
@@ -28,21 +32,46 @@ function getPasswordFeedback(password) {
                 feedback.message = "Kiváló!";
                 feedback.bsColorClass = "text-success";
                 break;
-            
+
         }
     }
-    
+
     return feedback;
 }
 
+function signOutUser() {
+    // Modal for confirmation dialog...
+    registeredUser.value = null;
+}
 
-function getFormValidationResult(formFields) {
+
+function getFormValidationResult(formFields, isRegistering) {
+    if (isRegistering) {
+        return  {
+            name: {
+                isCorrect: formFields.name.length > 3,
+                message: formFields.name.length > 3 ? null: "A név nem elég hosszú!"
+            },
+            passwordRepeat: {
+                isCorrect: formFields.password == formFields.passwordRepeat,
+                message: formFields.password == formFields.passwordRepeat ? null : "A két jelszó nem egyezik!"
+            },
+            password: getPasswordFeedback(formFields.password)
+        }
+    }
     return {
-        isNameCorrect: formFields.name.length > 3,
-        isRepeatPasswordCorrect: formFields.password == formFields.passwordRepeat,
-        passwordData: getPasswordFeedback(formFields.password)
-    };
-    
+            name: {
+                isCorrect: formFields.name.length != 0,
+                message: formFields.name.length ? null : "Kérlek ne hagyd üresen ezt a mezőt!"
+            },
+            
+            password: {
+                isCorrect: formFields.password.length != 0,
+                message: formFields.password.length ? null : "Kérlek ne hagyd üresen ezt a mezőt!",
+                bsColorClass: "text-danger"
+            }
+        }
+
 }
 
 const getPasswordStrengthText = password => {
@@ -52,4 +81,4 @@ const getPasswordStrengthText = password => {
     return 0;
 }
 
-export { getFormValidationResult };
+export { getFormValidationResult, registeredUser, signOutUser };
