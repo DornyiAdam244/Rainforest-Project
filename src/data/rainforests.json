@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Amazonaszi esőerdő",
+        "coords": [
+            -3,
+            -60
+        ],
+        "radius": 2000000
+    },
+    {
+        "name": "Kongói esőerdő",
+        "coords": [
+            0,
+            25
+        ],
+        "radius": 1200000
+    },
+    {
+        "name": "Szundaföldi esőerdő",
+        "coords": [
+            0,
+            110
+        ],
+        "radius": 800000
+    },
+    {
+        "name": "Ausztrálázsiai esőerdő",
+        "coords": [
+            -6,
+            147
+        ],
+        "radius": 700000
+    },
+    {
+        "name": "Indo-burmai esőerdő",
+        "coords": [
+            20,
+            100
+        ],
+        "radius": 900000
+    },
+    {
+        "name": "Mezoamerikai esőerdő",
+        "coords": [
+            15,
+            -90
+        ],
+        "radius": 600000
+    },
+    {
+        "name": "Wallacea-i esőerdő",
+        "coords": [
+            -2,
+            125
+        ],
+        "radius": 500000
+    }
+]

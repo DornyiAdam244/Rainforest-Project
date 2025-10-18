@@ -20,7 +20,7 @@ import { registeredUser, signOutUser } from '../utilities/utility';
                 <div class="collapse navbar-collapse w-100" id="navbarNav">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Térképoldal</a>
+                            <router-link to="/map"><a class="nav-link" href="#">Térképoldal</a></router-link>
                         </li>
                         <li class="nav-item">
                             <router-link to="/elearning"><a class="nav-link" href="#">E-learning</a></router-link>
