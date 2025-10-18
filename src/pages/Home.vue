@@ -130,9 +130,10 @@
 
     <div class="container-fluid bg-div"></div>
 
-    <div class="container-fluid text-center py-4">
-      <h2>Térkép</h2>
-      <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=-4.196917,%20-65.272158+(Amazon)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.mapsdirections.info/it/calcola-la-popolazione-su-una-mappa/">popolazione per regione Italia mappa</a></iframe></div>
+    <div class="container-fluid text-center pt-5 py-4">
+      <h2>Nézd meg az összeállított térképeinket!</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, minima fugiat repellat neque eveniet iste hic non facere quasi? Expedita et quia aperiam illum dignissimos, unde eaque doloribus accusantium sint!</p>
+      <router-link to="/map" class="btn btnYellow mt-2">Megnézem</router-link>
     </div>
 
     <div class="container row text-center my-5 p-3">

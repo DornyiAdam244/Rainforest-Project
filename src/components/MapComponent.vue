@@ -26,6 +26,6 @@ setTimeout(() => { /* Hotfix to make sure the map component is loaded before run
 
 <style scoped>
 #map {
-    height: 500px;
+    height: 675px !important;
 }
 </style>
