@@ -1,5 +1,6 @@
 <script setup>
-import { registeredUser, signOutUser } from '../utilities/utility';
+import { signOutUser } from '../utilities/utility';
+import { registeredUser } from '../utilities/crudUtility';
 </script>
 
 <template>
@@ -32,13 +33,13 @@ import { registeredUser, signOutUser } from '../utilities/utility';
                             <a href="#" class="nav-link">Kontakt</a>
                         </li>
                         <div id="profile-options" class="dropdown ms-lg-auto" v-if="registeredUser">
-                            <a href="#" class="profile-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i> {{ registeredUser.getName() }}</a>
+                            <a href="#" class="profile-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i> {{ registeredUser?.getName() }}</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" class="dropdown-item">Előrehaladás</a></li>
+                                <li><router-link to="/progress" class="dropdown-item">Előrehaladás</router-link></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item text-danger" @click="signOutUser()" href="#">Kijelentkezés</a></li>
+                                <li><a class="dropdown-item text-danger" @click="signOutUser()">Kijelentkezés</a></li>
                             </ul>
                         </div>
                         <div v-else class="ms-lg-auto registry d-lg-flex">

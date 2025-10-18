@@ -1,24 +1,39 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import animals from '../data/animals.json'
+import { defaultAlertToast } from '../utilities/utility'
+import { registeredUser, updateSeenAnimalsForRegisteredUser } from '../utilities/crudUtility'
+import { getImageUrl } from '../utilities/animalsUtility'
 
-const focusedAnimalID = ref(0)
+const focusedAnimalID = ref([...registeredUser.value?.getSeenAnimals()].pop() || 0);
 const total = computed(() => animals.length)
 
-const seenAnimals = ref(new Set([0]))
+//const seenAnimals = ref(new Set([0]))
+
+const seenAnimals = ref(registeredUser.value?.getSeenAnimals() || new Set([0]));
+
+
 const query = ref("")
 const queries = ref([])
-const select = ref("")
 
 const numberOfSeenAnimals = computed(() => seenAnimals.value.size)
 const scrollBarPercent = computed(() => Math.round((numberOfSeenAnimals.value / total.value) * 100))
 
-const getImageUrl = (file) => new URL(`../assets/${file}`, import.meta.url).href
+showToastAlertIfNotRegistered();
 let modalInstance = null
 onMounted(() => {
   const modalEl = document.getElementById('exampleModal')
   modalInstance = new window.bootstrap.Modal(modalEl)
 })
+
+function showToastAlertIfNotRegistered() {
+  if (!registeredUser.value) {
+    defaultAlertToast.setIcon("bi-exclamation-diamond-fill", "text-warning");
+    defaultAlertToast.setTitle("Úgy tűnik, nem vagy bejelentkezve!");
+    defaultAlertToast.setMessage("Ha bejelentkezel, elmenthedet előrehaladásod és nyomonkövetheted az eddig felfedezett állatokat!");
+    defaultAlertToast.show();
+  }
+}
 
 const validate = (name) => {
 
@@ -52,6 +67,10 @@ const markSeen = (id) => {
     const next = new Set(seenAnimals.value)
     next.add(id)
     seenAnimals.value = next
+    if (registeredUser.value) {
+      registeredUser.value.setSeenAnimals(seenAnimals.value);
+      updateSeenAnimalsForRegisteredUser();
+    };
   }
 }
 
