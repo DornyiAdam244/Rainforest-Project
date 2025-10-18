@@ -103,6 +103,11 @@ h3 {
   background-color: #105950;
 }
 
+a {
+  cursor: pointer;
+}
+
 .toast i {
   font-size: 25px;
+  margin-right: 8px;
 }

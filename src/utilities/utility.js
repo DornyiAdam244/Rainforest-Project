@@ -1,6 +1,7 @@
-import { ref } from 'vue';
-
-const registeredUser = ref(null);
+import { registeredUser } from './crudUtility';
+import Toast from '../data/toast';
+import router from '../router';
+const defaultAlertToast = new Toast("liveToast");
 
 function getPasswordFeedback(password) {
     const feedback = { isCorrect: false, message: "", bsColorClass: "text-danger" };
@@ -40,17 +41,18 @@ function getPasswordFeedback(password) {
 }
 
 function signOutUser() {
-    // Modal for confirmation dialog...
-    registeredUser.value = null;
+    if (confirm("Biztosan ki szeretnél jelentkezni?")) {
+        registeredUser.value = null;
+        router.push("home");    
+    }
 }
-
 
 function getFormValidationResult(formFields, isRegistering) {
     if (isRegistering) {
-        return  {
+        return {
             name: {
                 isCorrect: formFields.name.length > 3,
-                message: formFields.name.length > 3 ? null: "A név nem elég hosszú!"
+                message: formFields.name.length > 3 ? null : "A név nem elég hosszú!"
             },
             passwordRepeat: {
                 isCorrect: formFields.password == formFields.passwordRepeat,
@@ -60,17 +62,17 @@ function getFormValidationResult(formFields, isRegistering) {
         }
     }
     return {
-            name: {
-                isCorrect: formFields.name.length != 0,
-                message: formFields.name.length ? null : "Kérlek ne hagyd üresen ezt a mezőt!"
-            },
-            
-            password: {
-                isCorrect: formFields.password.length != 0,
-                message: formFields.password.length ? null : "Kérlek ne hagyd üresen ezt a mezőt!",
-                bsColorClass: "text-danger"
-            }
+        name: {
+            isCorrect: formFields.name.length != 0,
+            message: formFields.name.length ? null : "Kérlek ne hagyd üresen ezt a mezőt!"
+        },
+
+        password: {
+            isCorrect: formFields.password.length != 0,
+            message: formFields.password.length ? null : "Kérlek ne hagyd üresen ezt a mezőt!",
+            bsColorClass: "text-danger"
         }
+    }
 
 }
 
@@ -81,4 +83,4 @@ const getPasswordStrengthText = password => {
     return 0;
 }
 
-export { getFormValidationResult, registeredUser, signOutUser };
+export { getFormValidationResult, registeredUser, signOutUser, defaultAlertToast };
