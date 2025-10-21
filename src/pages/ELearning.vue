@@ -5,7 +5,17 @@ import { defaultAlertToast } from '../utilities/utility'
 import { registeredUser, updateSeenAnimalsForRegisteredUser } from '../utilities/crudUtility'
 import { getImageUrl } from '../utilities/animalsUtility'
 
-const focusedAnimalID = ref([...(registeredUser.value?.getSeenAnimals() ?? [0])].pop());
+const focusedAnimalID = getFocusedAnimalID();
+
+
+function getFocusedAnimalID() {
+  const seenAnimalsSet = registeredUser.value?.getSeenAnimals();
+  if (seenAnimalsSet && seenAnimalsSet.size != 0) {
+    return [...seenAnimalsSet].pop();
+  }
+  return 0;
+}
+
 const total = computed(() => animals.length)
 
 //const seenAnimals = ref(new Set([0]))
