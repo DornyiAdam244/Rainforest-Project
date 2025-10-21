@@ -21,13 +21,16 @@ import { registeredUser } from '../utilities/crudUtility';
                 <div class="collapse navbar-collapse w-100" id="navbarNav">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item">
-                            <router-link to="/map"><a class="nav-link" href="#" active-class="active">Térképoldal</a></router-link>
+                            <router-link to="/map"><a class="nav-link" href="#"
+                                    active-class="active">Térképoldal</a></router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/elearning"><a class="nav-link" href="#" active-class="active">E-learning</a></router-link>
+                            <router-link to="/elearning"><a class="nav-link" href="#"
+                                    active-class="active">E-learning</a></router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/quiz"><a class="nav-link" href="#" active-class="active">Kvíz játék</a></router-link>
+                            <router-link to="/quiz"><a class="nav-link" href="#" active-class="active">Kvíz
+                                    játék</a></router-link>
                         </li>
                         <li class="nav-item">
                             <a href="#contact" class="nav-link">Kontakt</a>
@@ -115,7 +118,9 @@ header {
 }
 
 .router-link-exact-active {
-  font-weight: 700;
+    color: #fff !important;
+    border-bottom: 2px solid #007b5e;
+    font-weight: 700;
 }
 
 

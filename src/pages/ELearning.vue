@@ -18,7 +18,6 @@ function getFocusedAnimalID() {
 
 const total = computed(() => animals.length)
 
-//const seenAnimals = ref(new Set([0]))
 
 const seenAnimals = ref(registeredUser.value?.getSeenAnimals() || new Set([0]));
 
@@ -73,7 +72,6 @@ const searchForAnimal = () => {
 
 const markSeen = (id) => {
   if (!seenAnimals.value.has(id)) {
-    // We have to reset the memory address for Vue to react(no pun intended)
     const next = new Set(seenAnimals.value)
     next.add(id)
     seenAnimals.value = next
@@ -106,7 +104,6 @@ function isTypingInForm(el, pressedKey) {
   const editable = el.isContentEditable
   if (!(editable || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT')) return false
 
-  // Ha inputban vagyunk és nyilat nyomnak, de az input üres, engedjük a navigációt
   if ((tag === 'INPUT' || tag === 'TEXTAREA')
     && ['ArrowLeft', 'ArrowRight'].includes(pressedKey)) {
     const val = (el.value ?? '').toString()
