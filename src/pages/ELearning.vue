@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import animals from '../data/animals.json'
 import { defaultAlertToast } from '../utilities/utility'
 import { registeredUser, updateRegisteredUserData } from '../utilities/crudUtility'
@@ -100,6 +100,54 @@ const previousAnimal = () => {
   markSeen(focusedAnimalID.value)
 }
 
+function isTypingInForm(el, pressedKey) {
+  if (!(el instanceof HTMLElement)) return false
+  const tag = el.tagName
+  const editable = el.isContentEditable
+  if (!(editable || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT')) return false
+
+  // Ha inputban vagyunk és nyilat nyomnak, de az input üres, engedjük a navigációt
+  if ((tag === 'INPUT' || tag === 'TEXTAREA')
+    && ['ArrowLeft', 'ArrowRight'].includes(pressedKey)) {
+    const val = (el.value ?? '').toString()
+    if (val.trim() === '') return false
+  }
+  return true
+}
+
+function handleKeydown(e) {
+  if (!['ArrowLeft', 'ArrowRight', 'Enter', 'Escape'].includes(e.key)) return
+  if (isTypingInForm(document.activeElement, e.key)) return
+
+  switch (e.key) {
+    case 'ArrowLeft':
+      e.preventDefault()
+      previousAnimal()
+      break
+    case 'ArrowRight':
+      e.preventDefault()
+      nextAnimal()
+      break
+    case 'Enter':
+      e.preventDefault()
+      openDetails()
+      break
+  }
+}
+
+
+onMounted(() => {
+  const modalEl = document.getElementById('exampleModal')
+  modalInstance = new window.bootstrap.Modal(modalEl)
+  window.addEventListener('keydown', handleKeydown, { capture: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown, { capture: true })
+})
+
+
+
 </script>
 
 <template>
@@ -146,8 +194,7 @@ const previousAnimal = () => {
             <span @click="searchForAnimal()" class="input-group-text" id="basic-addon1">
               <bi class="bi-search"></bi>
             </span>
-            <input v-model="query" placeholder='Pl. "Zöld" vagy "Pók"' type="text" class="form-control"
-              id="animalName">
+            <input v-model="query" placeholder='Pl. "Zöld" vagy "Pók"' type="text" class="form-control" id="animalName">
           </div>
           <ul v-if="queries.length > 1" class="list-group">
             <li :class="{ active: focusedAnimalID === value.id - 1 }" v-for="(value, index) in queries" :key="index"
