@@ -88,6 +88,16 @@ header {
     font-size: 20px;
 }
 
+.navbar .router-link-exact-active .nav-link {
+    border-bottom: 2px solid #007b5e;
+    font-weight: 700;
+}
+
+#profile-options .router-link-exact-active {
+    border-bottom: 0;
+    font-weight: 400;
+}
+
 .nav-item a,
 .nav-item .btn {
     white-space: nowrap;
