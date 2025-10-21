@@ -2,7 +2,9 @@ import { ref, watch } from 'vue';
 import User from '../data/user';
 const apiKey = "https://reeldev.hu/api/68f0bc4f541ae089479746";
 const registeredUser = ref(await getRegisteredUserFromJSON());
-watch(registeredUser, async (newUser, oldUser) => await switchRegisteredUsers(newUser, oldUser));
+watch(registeredUser, async (newUser, oldUser) => {
+    localStorage.setItem("registeredUser", newUser ? newUser.getCrudId() : "");
+});
 
 async function addUser(user, destination = "users") {
     try {
@@ -20,15 +22,24 @@ async function addUser(user, destination = "users") {
 }
 
 async function getRegisteredUserFromJSON() {
-    return User.userInstanceFromJSON(await fetchRegisteredUser());
+    return User.userInstanceFromJSON(await fetchRegisteredUserData());
 }
 
+// async function saveUserQuizResult() {
+//     await postUserChanges(registeredUser.value, "registeredUser");
+//     const idFromUsersTable = User.userInstanceFromJSON(await fetchUserByName(registeredUser.value.getName())).getCrudId();
+//     await postUserChanges(registeredUser.value, "users", idFromUsersTable);
+// }
 
-async function updateSeenAnimalsForRegisteredUser() {
-    await postUserChanges(registeredUser.value, "registeredUser");
-    const idFromUsersTable = User.userInstanceFromJSON(await fetchUserByName(registeredUser.value.getName())).getCrudId();
-    await postUserChanges(registeredUser.value, "users", idFromUsersTable);
+async function updateRegisteredUserData() {
+    await postUserChanges(registeredUser.value, "users", getRegisteredUserIdFromLocalstorage());
 }
+
+// async function updateSeenAnimalsForRegisteredUser() {
+//     //await postUserChanges(registeredUser.value, "registeredUser");
+//     // const idFromUsersTable = User.userInstanceFromJSON(await fetchUserByName(registeredUser.value.getName())).getCrudId();
+//     await postUserChanges(registeredUser.value, "users", getRegisteredUserIdFromLocalstorage());
+// }
 
 async function fetchUserId(id, destination = "users") {
     try {
@@ -39,19 +50,22 @@ async function fetchUserId(id, destination = "users") {
     }
 }
 
-async function fetchRegisteredUser() {
-    try {
-        return (await (await fetch(`${apiKey}/registeredUser`)).json())[0] || null;
+async function fetchRegisteredUserData() {
+    const registeredUserId = getRegisteredUserIdFromLocalstorage();
+    if (registeredUserId) {
+        return await (await fetch(`${apiKey}/users/${registeredUserId}`)).json();
     }
-    catch (e) {
-        console.error(e);
-    }
+    return null;
 }
 
-async function postUserChanges(user, destination = "users", id=null) {
+
+function getRegisteredUserIdFromLocalstorage() {
+    return localStorage.getItem("registeredUser");
+}
+
+async function postUserChanges(user, destination = "users", id) {
+    if (!id) return;
     try {
-        console.log(user.toJSON());
-        console.log(JSON.stringify(user.toJSON()));
         await fetch(`${apiKey}/${destination}/${id || user.getCrudId()}`, {
             method: 'PUT',
             headers: {
@@ -59,7 +73,7 @@ async function postUserChanges(user, destination = "users", id=null) {
             },
             body: JSON.stringify(user.toJSON())
         });
-        
+
     }
     catch (e) {
         console.error(e);
@@ -76,21 +90,21 @@ async function fetchUsers() {
     }
 }
 
-async function switchRegisteredUsers(newUser, oldUser) {
-    try {   
-        if (oldUser) {
-            await fetch(`${apiKey}/registeredUser/${oldUser.getCrudId()}`, {
-                method: 'DELETE'
-            });
-        }
-        if (newUser) {
-            await addUser(newUser, "registeredUser");
-        }
-    }
-    catch (e) {
-        console.error(e);
-    }
-}
+// async function switchRegisteredUsers(newUser, oldUser) {
+//     try {
+//         if (oldUser) {
+//             await fetch(`${apiKey}/registeredUser/${oldUser.getCrudId()}`, {
+//                 method: 'DELETE'
+//             });
+//         }
+//         if (newUser) {
+//             await addUser(newUser, "registeredUser");
+//         }
+//     }
+//     catch (e) {
+//         console.error(e);
+//     }
+// }
 
 async function fetchUserByName(name) {
     try {
@@ -104,4 +118,4 @@ async function fetchUserByName(name) {
 }
 
 
-export { addUser, fetchUserId, fetchUserByName, fetchRegisteredUser, postUserChanges, switchRegisteredUsers, registeredUser, updateSeenAnimalsForRegisteredUser };
+export { addUser, fetchUserId, fetchUserByName, fetchRegisteredUserData, postUserChanges, updateRegisteredUserData, registeredUser };

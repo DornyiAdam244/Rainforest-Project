@@ -1,58 +1,51 @@
 [
     {
-        "name": "Amazonaszi esőerdő",
-        "coords": [
-            -3,
-            -60
-        ],
-        "radius": 2000000
+      "name": "Amazonaszi esőerdő",
+      "coords": [-3, -60],
+      "radius": 2000000,
+      "areaKm2": 5500000,
+      "description": "A világ legnagyobb trópusi esőerdeje, 9 országon terül el, rendkívül gazdag biodiverzitással."
     },
     {
-        "name": "Kongói esőerdő",
-        "coords": [
-            0,
-            25
-        ],
-        "radius": 1200000
+      "name": "Kongói esőerdő",
+      "coords": [0, 25],
+      "radius": 1200000,
+      "areaKm2": 3000000,
+      "description": "Afrika legnagyobb esőerdeje, kulcsszerepet játszik a szén-dioxid megkötésében és a klímaszabályozásban."
     },
     {
-        "name": "Szundaföldi esőerdő",
-        "coords": [
-            0,
-            110
-        ],
-        "radius": 800000
+      "name": "Szundaföldi esőerdő",
+      "coords": [0, 110],
+      "radius": 800000,
+      "areaKm2": 800000,
+      "description": "Délkelet-Ázsiában található, orángutánok és egzotikus fajok élőhelye, erdőirtás fenyegeti."
     },
     {
-        "name": "Ausztrálázsiai esőerdő",
-        "coords": [
-            -6,
-            147
-        ],
-        "radius": 700000
+      "name": "Ausztrálázsiai esőerdő",
+      "coords": [-6, 147],
+      "radius": 700000,
+      "areaKm2": 1800,
+      "description": "A világ legrégebbi esőerdeje, egyedülálló fajokkal, mint erszényesek és hüllők."
     },
     {
-        "name": "Indo-burmai esőerdő",
-        "coords": [
-            20,
-            100
-        ],
-        "radius": 900000
+      "name": "Indo-burmai esőerdő",
+      "coords": [20, 100],
+      "radius": 900000,
+      "areaKm2": 900000,
+      "description": "India és Délkelet-Ázsia területén, veszélyeztetett fajok, például ázsiai elefánt és tigris élőhelye."
     },
     {
-        "name": "Mezoamerikai esőerdő",
-        "coords": [
-            15,
-            -90
-        ],
-        "radius": 600000
+      "name": "Mezoamerikai esőerdő",
+      "coords": [15, -90],
+      "radius": 600000,
+      "areaKm2": 600000,
+      "description": "Közép-Amerikában található, jaguárok, tapírok és madárfajok élőhelye."
     },
     {
-        "name": "Wallacea-i esőerdő",
-        "coords": [
-            -2,
-            125
-        ],
-        "radius": 500000
+      "name": "Wallacea-i esőerdő",
+      "coords": [-2, 125],
+      "radius": 500000,
+      "areaKm2": 500000,
+      "description": "Indonézia szigetein található, magas endemizmusú fajokkal, biogeográfiai átmeneti zóna."
     }
-]
+  ]

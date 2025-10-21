@@ -10,9 +10,9 @@
             <img src="../assets/partner4.png" alt="">
         </div>
     </section>
-    <footer>
+    <footer id="contact">
         <div class="backdrop"></div>
-        <div class="content p-5">
+        <div class="content p-lg-5">
             <section class="row">
                 <div class="contact-form col-lg-6">
                     <form>
@@ -42,15 +42,15 @@
                                 <i class="bi bi-telephone-fill me-2"></i> +36 90 123 4567
                             </li>
                             <li><i class="bi bi-envelope-fill me-2"></i> rainforestTean@forestmail.com</li>
-                            <li>Random Address</li>
+                            <li><i class="bi bi-github me-2"></i> <a href="https://github.com/DornyiAdam244/Rainforest-Project" target="_blank">github.com/DornyiAdam244/Rainforest-Project</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4">
                         <h4>Locations</h4>
-                        <ul class="p-0">
-                            <li>Lorem ipsum 1</li>
-                            <li>Lorem ipsum 2</li>
-                            <li>Lorem ipsum 3</li>
+                        <ul class="p-0 loc">
+                            <li>Tatabánya</li>
+                            <li>Canberra</li>
+                            <li>Yorkshire</li>
                         </ul>
                     </div>
                     <div class="col-lg-2">
@@ -64,9 +64,10 @@
                 </div>
             </section>
             <div class="copyright mt-auto">
-                <p class="m-0 text-center"> &copy; {{ new Date().getFullYear() }} - RainForest Project - All rights
+                <p class="text-center"> &copy; {{ new Date().getFullYear() }} - RainForest Project - All rights
                     reserved.
                 </p>
+                <p class="m-0 text-center">Készitette: Hovanyecz István Dániel, Dornyi Ádám Róbert, De Caro Lorenzo</p>
             </div>
         </div>
     </footer>
@@ -99,6 +100,11 @@
 .contact-form {
     position: relative;
     padding-top: 0 !important;
+}
+
+.loc li {
+    font-size: 16px !important;
+    margin-bottom: 5px;
 }
 
 .contact-form h3 {
@@ -215,11 +221,16 @@ li {
 @media only screen and (max-width: 1200px) {
     form {
         position: static !important;
+        box-shadow: none !important;
     }
 
     .contact-form {
         position: static !important;
-        padding: 30px;
+        padding: 0
+    }
+
+    .row div:not(.contact-form, .contact-form div) {
+        padding: 30px !important;
     }
 }
 </style>

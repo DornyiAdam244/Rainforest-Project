@@ -1,5 +1,6 @@
 <script setup>
 import Collection from '../components/Collection.vue';
+import QuizResult from '../components/QuizResult.vue';
 import animals from '../data/animals.json'
 import router from '../router';
 import { registeredUser } from '../utilities/crudUtility';
@@ -13,7 +14,7 @@ if (!registeredUser.value) {
 </script>
 
 <template>
-    <h1 class="text-center my-5">Felfedezett állatok ({{ registeredUser.getSeenAnimals().size }}/{{ animals.length }})</h1>
+    <h1 class="text-center my-5">Felfedezett állatok ({{ registeredUser?.getSeenAnimals().size }}/{{ animals.length }})</h1>
     <Collection v-if="registeredUser"/>
     <h3 v-else>Gyűjtemény nem elérhető</h3>
 </template>

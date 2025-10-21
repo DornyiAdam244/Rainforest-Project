@@ -4,7 +4,6 @@ import { defaultAlertToast, getFormValidationResult } from '../utilities/utility
 import { addUser, fetchUserByName, registeredUser } from '../utilities/crudUtility';
 import User from '../data/user';
 import router from '../router/index';
-import Toast from '../data/toast';
 const props = defineProps({
     register: Boolean
 });
@@ -43,6 +42,8 @@ async function warnInvalidCredentialsOrProceedSignIn() {
         registeredUser.value = user;
         attemptedFormSubmission.value = false;
         defaultAlertToast.showSuccessToast("Sikeres Bejelentkezés!", "Átirányítás a főoldalra...");
+        console.log("aa");
+        
         defaultAlertToast.toastOnHide(() => router.push("/home"));
         clearFields();
     }

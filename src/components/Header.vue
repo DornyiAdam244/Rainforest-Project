@@ -13,7 +13,7 @@ import { registeredUser } from '../utilities/crudUtility';
         </div>
         <nav class="navbar navbar-expand-lg w-100 py-0 pe-0 ps-3 navbar-light d-flex align-items-center">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Esőerdő Projekt</a>
+                <a class="navbar-brand" href="#">Esőerdők világa</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,16 +21,16 @@ import { registeredUser } from '../utilities/crudUtility';
                 <div class="collapse navbar-collapse w-100" id="navbarNav">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item">
-                            <router-link to="/map"><a class="nav-link" href="#">Térképoldal</a></router-link>
+                            <router-link to="/map"><a class="nav-link" href="#" active-class="active">Térképoldal</a></router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/elearning"><a class="nav-link" href="#">E-learning</a></router-link>
+                            <router-link to="/elearning"><a class="nav-link" href="#" active-class="active">E-learning</a></router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/quiz"><a class="nav-link" href="#">Kvíz játék</a></router-link>
+                            <router-link to="/quiz"><a class="nav-link" href="#" active-class="active">Kvíz játék</a></router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Kontakt</a>
+                            <a href="#contact" class="nav-link">Kontakt</a>
                         </li>
                         <div id="profile-options" class="dropdown ms-lg-auto" v-if="registeredUser">
                             <a href="#" class="profile-icon dropdown-toggle" data-bs-toggle="dropdown"
@@ -113,6 +113,11 @@ header {
     transform: scale(1.05);
     transition: all 0.2s ease-in-out;
 }
+
+.router-link-exact-active {
+  font-weight: 700;
+}
+
 
 @media only screen and (min-width: 991px) {
     #profile-options {
