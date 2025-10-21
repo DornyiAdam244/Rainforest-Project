@@ -1,10 +1,9 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import { registeredUser, updateSeenAnimalsForRegisteredUser, saveUserQuizResult } from '../utilities/crudUtility'
+import { ref, onMounted } from 'vue'
+import { registeredUser, updateRegisteredUserData } from '../utilities/crudUtility'
 
 import animals from '../data/animals.json'
 const evaluatedPair = ref(false)
-const focusedAnimalID = ref(0)
 const currentQuestionCorrect = ref(false);
 const animalPairs = ref([])
 const correctQuestions = ref(0)
@@ -81,7 +80,7 @@ const valuateChoice = (isVenomous) => {
 const newGame = () => {
   const bestQuiz = ref(registeredUser.value?.getBestQuizResult() || 0);
   if (bestQuiz.value < correctQuestions.value) registeredUser.value?.setBestQuizResult(correctQuestions.value)
-  saveUserQuizResult()
+  updateRegisteredUserData()
   previousAnimals.value = {}
   correctQuestions.value = 0
   totalQuestionsDone.value = 0

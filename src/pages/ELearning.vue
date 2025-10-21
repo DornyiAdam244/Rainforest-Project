@@ -2,7 +2,7 @@
 import { ref, computed, onMounted } from 'vue'
 import animals from '../data/animals.json'
 import { defaultAlertToast } from '../utilities/utility'
-import { registeredUser, updateSeenAnimalsForRegisteredUser } from '../utilities/crudUtility'
+import { registeredUser, updateRegisteredUserData } from '../utilities/crudUtility'
 import { getImageUrl } from '../utilities/animalsUtility'
 
 const focusedAnimalID = ref(getFocusedAnimalID());
@@ -79,7 +79,7 @@ const markSeen = (id) => {
     seenAnimals.value = next
     if (registeredUser.value) {
       registeredUser.value.setSeenAnimals(seenAnimals.value);
-      updateSeenAnimalsForRegisteredUser();
+      updateRegisteredUserData();
     };
   }
 }

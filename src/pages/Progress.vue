@@ -14,7 +14,7 @@ if (!registeredUser.value) {
 </script>
 
 <template>
-    <h1 class="text-center my-5">Felfedezett állatok ({{ registeredUser.getSeenAnimals().size }}/{{ animals.length }})</h1>
+    <h1 class="text-center my-5">Felfedezett állatok ({{ registeredUser?.getSeenAnimals().size }}/{{ animals.length }})</h1>
     <Collection v-if="registeredUser"/>
     <h3 v-else>Gyűjtemény nem elérhető</h3>
 </template>
