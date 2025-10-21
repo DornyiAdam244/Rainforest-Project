@@ -13,7 +13,8 @@ import MapComponent from '../components/MapComponent.vue';
     <p>Ha többet szeretne tudni az esőerdőinkról, nézze meg az interaktív e-learning oldalunkat.</p>
     <router-link to="/elearning" class="btn btnYellow">Menjünk</router-link> 
   </div>
-
+  
+  <div class="container-fluid bg-div"></div>
 </template>
 <style scoped>
 #map {

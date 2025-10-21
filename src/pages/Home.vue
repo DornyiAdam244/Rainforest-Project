@@ -16,7 +16,7 @@
           <p>A természet megőrzéséért</p>
         </div>
         <div class="carousel-item active">
-          <img src="../assets/carousel1.webp" class="d-block w-100" alt="...">
+          <img src="../assets/carousel1.webp" class="d-block w-100" alt="Óriásvidra kép" title="Óriásvidra">
           <div class="carousel-caption d-block text-center text-md-start">
                 <h5>Új interaktív e-learning oldalunk</h5>
                 <p>Tanuld meg az esőerdőink állatait és tulajdonságait!</p>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="carousel-item">
-          <img src="../assets/carousel2.webp" class="d-block w-100" alt="...">
+          <img src="../assets/carousel2.webp" class="d-block w-100" alt="Arapapagájok kép" title="Arapapagájok">
           <div class="carousel-caption d-block text-center text-md-start">
                 <h5>Keresd meg esőerdőinket</h5>
                 <p>Tajékozodj a legnagyobb esőerdőinkről a térképoldalunkon</p>
@@ -46,17 +46,17 @@
     <div class="container row text-center mt-5 three-cards">
       <h2 class="mb-5">Célunk bemutatása</h2>
       <div class="col-lg-4 col-12">
-        <img src="../assets/leaf.png" alt="">
+        <img src="../assets/leaf.png" alt="Levél ikon">
         <h3>Esőerdők fajtái</h3>
         <p>Az esőerdők nem egyformák: vannak trópusi, szubtrópusi és mérsékelt övi erdők is. Minden típus más éghajlathoz, növényzethez és állatvilághoz alkalmazkodott. Fedezd fel, hol találhatók, és mi teszi őket különlegessé!</p>
       </div>
       <div class="col-lg-4 col-12">
-        <img src="../assets/binoculars.png" alt="">
+        <img src="../assets/binoculars.png" alt="Látcső ikon">
         <h3>Állatvilág</h3>
         <p>Az esőerdők az élővilág kincseskamrái: több millió állatfaj otthonai. A majmoktól a színpompás madarakig, a jaguártól a méhecskékig minden életforma fontos szerepet játszik az egyensúly megőrzésében.</p>
       </div>    
       <div class="col-lg-4 col-12">
-        <img src="../assets/location.png" alt="">
+        <img src="../assets/location.png" alt="Hely ikon">
         <h3>Felfedezés</h3>
         <p>Merülj el az esőerdők világában! Barangold be térképen, ismerd meg titkaikat, és fedezd fel, hogyan kapcsolódik minden apró részlet a természet egészéhez. Tanulj játékosan, miközben igazi felfedezővé válsz!</p>
       </div>
@@ -107,7 +107,7 @@
                 </div>
           </div>
           <div class="col-lg-4 col-12 order-lg-2 order-1">
-            <img src="../assets/card.webp" alt="">
+            <img src="../assets/card.webp" alt="Arapapagáj kép" title="Arapapagáj">
           </div>
         </article>
       </div>
@@ -120,12 +120,12 @@
         <h3>🌱 1. Vásárolj tudatosan!</h3>
         <p>A mindennapi döntéseiddel is hatással vagy a bolygóra. Válaszd azokat a termékeket, amelyek fenntartható forrásból származnak, és nem járnak erdőirtással. Kerüld a pálmaolajat, az egzotikus fából készült tárgyakat és az egyszer használatos műanyagokat. Ha felelősen vásárolsz, máris teszel valamit az esőerdők védelméért.</p>
       </div>
-      <div class="text-center"><img class="cta-divider" src="../assets/leaf.png" alt=""></div>
+      <div class="text-center"><img class="cta-divider" src="../assets/leaf.png" alt="Levél ikon"></div>
       <div class="my-5">
         <h3>🔄 2. Csökkentsd az ökolábnyomod!</h3>
         <p>Minden apró szokás számít: használd kevesebbet az autót, spórolj az energiával, és figyelj oda a hulladék szelektálására. Ha kevesebb erőforrást fogyasztunk, kevesebb nyomást gyakorlunk a Föld erdeire és élővilágára. Gondolj arra, hogy amit ma megspórolsz, az a jövő generációinak marad meg. A változás mindig a hétköznapi döntéseknél kezdődik.</p>
       </div>
-      <div class="text-center"><img class="cta-divider" src="../assets/leaf.png" alt=""></div>
+      <div class="text-center"><img class="cta-divider" src="../assets/leaf.png" alt="Levél ikon"></div>
       <div class="my-5">
         <h3>📢 3. Terjeszd az üzenetet!</h3>
         <p>Sokan nem is tudják, milyen fontos szerepet játszanak az esőerdők a Föld életében. Mesélj róluk a barátaidnak, az iskolában vagy a közösségi médiában – minden beszélgetés közelebb visz a tudatosabb világ felé. Készíthetsz plakátot, posztot, vagy akár egy rövid videót is a témáról. Egy kis figyelemfelhívás sokakat inspirálhat a cselekvésre.</p>
@@ -136,7 +136,7 @@
 
     <div class="container-fluid text-center pt-5 py-4">
       <h2>Nézd meg az összeállított térképeinket!</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, minima fugiat repellat neque eveniet iste hic non facere quasi? Expedita et quia aperiam illum dignissimos, unde eaque doloribus accusantium sint!</p>
+      <p>Az új terképünk megmutatja a legnagyobb esőerdőket a Földünkön, nagyságukkal és rövid leírással. Nézd meg!</p>
       <router-link to="/map" class="btn btnYellow mt-2">Megnézem</router-link>
     </div>
 
