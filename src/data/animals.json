@@ -3,7 +3,7 @@
     "id": 1,
     "Name": "Jaguár",
     "ImagePath": "jaguar.png",
-    "Description": "A dél-amerikai esőerdők <strong>csúcsragadozója</strong>, amely <em>kiváló úszó és mászó</em>. Jellegzetes <strong>foltjai</strong> segítik az <strong>álcázásban</strong>.",
+    "Description": "A dél-amerikai esőerdők <strong>csúcsragadozója</strong>, amely <em>kiváló úszó és mászó</em>. Jellegzetes <strong>foltjai</strong> segítik az <strong>álcázásban</strong>.<br><i>tigrincs</i>",
     "isVenomous": false
   },
   {
