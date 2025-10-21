@@ -33,7 +33,9 @@ import { registeredUser } from '../utilities/crudUtility';
                             <a href="#" class="nav-link">Kontakt</a>
                         </li>
                         <div id="profile-options" class="dropdown ms-lg-auto" v-if="registeredUser">
-                            <a href="#" class="profile-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i> {{ registeredUser?.getName() }}</a>
+                            <a href="#" class="profile-icon dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false"><i class="bi bi-person-circle"></i> {{ registeredUser?.getName()
+                                }}</a>
                             <ul class="dropdown-menu">
                                 <li><router-link to="/progress" class="dropdown-item">Előrehaladás</router-link></li>
                                 <li>
@@ -44,10 +46,12 @@ import { registeredUser } from '../utilities/crudUtility';
                         </div>
                         <div v-else class="ms-lg-auto registry d-lg-flex">
                             <li class="nav-item me-lg-2 mb-2 mb-lg-0 mb-xl-0">
-                                <router-link to="/registry"><button class="btn" type="button">Sign Up</button></router-link>
+                                <router-link to="/registry"><button class="btn" type="button">Sign
+                                        Up</button></router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link to="/log-in"><button class="btn outline" type="button">Sign In</button></router-link>
+                                <router-link to="/log-in"><button class="btn outline" type="button">Sign
+                                        In</button></router-link>
                             </li>
                         </div>
                     </ul>
@@ -81,7 +85,8 @@ header {
     font-size: 20px;
 }
 
-.nav-item a, .nav-item .btn {
+.nav-item a,
+.nav-item .btn {
     white-space: nowrap;
 }
 
@@ -114,5 +119,4 @@ header {
         right: 35px;
     }
 }
-
 </style>

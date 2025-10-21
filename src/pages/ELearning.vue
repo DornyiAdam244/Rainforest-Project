@@ -136,7 +136,7 @@ const previousAnimal = () => {
             <span @click="searchForAnimal()" class="input-group-text" id="basic-addon1">
               <bi class="bi-search"></bi>
             </span>
-            <input v-model="query" placeholder='Pl. "kék" vagy "vipera"' type="text" class="form-control"
+            <input v-model="query" placeholder='Pl. "Zöld" vagy "Pók"' type="text" class="form-control"
               id="animalName">
           </div>
           <ul v-if="queries.length > 1" class="list-group">
