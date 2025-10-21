@@ -1,5 +1,6 @@
 <script setup>
 import Collection from '../components/Collection.vue';
+import QuizResult from '../components/QuizResult.vue';
 import animals from '../data/animals.json'
 import router from '../router';
 import { registeredUser } from '../utilities/crudUtility';

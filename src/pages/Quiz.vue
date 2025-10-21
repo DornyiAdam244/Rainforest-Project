@@ -19,7 +19,7 @@ onMounted(() => {
 })
 
 
-
+const bestQuiz = ref(registeredUser.value?.getBestQuizResult() || 0);
 
 const isReversed = ref(false)
 
@@ -79,6 +79,8 @@ const valuateChoice = (isVenomous) => {
 }
 
 const newGame = () => {
+  const bestQuiz = ref(registeredUser.value?.getBestQuizResult() || 0);
+  if (bestQuiz.value < correctQuestions.value) registeredUser.value?.setBestQuizResult(correctQuestions.value)
   saveUserQuizResult()
   previousAnimals.value = {}
   correctQuestions.value = 0
