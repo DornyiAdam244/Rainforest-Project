@@ -82,10 +82,6 @@ h3 {
   color: #4b7637;
 }
 
-.btn.outline:hover {
-  background-color: #4b763775;
-}
-
 .btn:active:not(.outline) {
   background-color: #4b7637a4 !important;
 
@@ -99,8 +95,13 @@ h3 {
   background-color: #eb3c3c !important;
 }
 
-.btn:not(.footer-top button):hover {
+.btn:not(.footer-top button, .btn.outline):hover {
   background-color: #105950;
+}
+
+.btn.outline:hover {
+  border-color: #105950;
+  color: #105950;
 }
 
 a {

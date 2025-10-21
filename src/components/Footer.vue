@@ -42,7 +42,7 @@
                                 <i class="bi bi-telephone-fill me-2"></i> +36 90 123 4567
                             </li>
                             <li><i class="bi bi-envelope-fill me-2"></i> rainforestTean@forestmail.com</li>
-                            <li>Random Address</li>
+                            <li><i class="bi bi-github me-2"></i> <a href="https://github.com/DornyiAdam244/Rainforest-Project" target="_blank">github.com/DornyiAdam244/Rainforest-Project</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4">
@@ -64,9 +64,10 @@
                 </div>
             </section>
             <div class="copyright mt-auto">
-                <p class="m-0 text-center"> &copy; {{ new Date().getFullYear() }} - RainForest Project - All rights
+                <p class="text-center"> &copy; {{ new Date().getFullYear() }} - RainForest Project - All rights
                     reserved.
                 </p>
+                <p class="m-0 text-center">Készitette: Hovanyecz István Dániel, Dornyi Ádám Róbert, De Caro Lorenzo</p>
             </div>
         </div>
     </footer>

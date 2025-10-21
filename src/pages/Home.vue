@@ -11,20 +11,24 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       </div>
       <div class="carousel-inner">
+        <div class="carousel-header d-md-block d-none">
+          <h1>Esőerdők világa</h1>
+          <p>A természet megőrzéséért</p>
+        </div>
         <div class="carousel-item active">
           <img src="../assets/carousel1.webp" class="d-block w-100" alt="...">
           <div class="carousel-caption d-block text-center text-md-start">
-                <h5>Lorem ipsum</h5>
-                <p>Lorem ispum dolor sit amet</p>
-                <button type="button" class="btn btnYellow mt-3 mb-md-0 mb-3">Megnézem</button>
+                <h5>Új interaktív e-learning oldalunk</h5>
+                <p>Tanuld meg az esőerdőink állatait és tulajdonságait!</p>
+                <router-link to="/elearning" class="btn btnYellow mt-3 mb-md-0 mb-3">Megnézem</router-link> 
             </div>
         </div>
         <div class="carousel-item">
           <img src="../assets/carousel2.webp" class="d-block w-100" alt="...">
           <div class="carousel-caption d-block text-center text-md-start">
-                <h5>Ipsum lorem</h5>
-                <p>Sequi deleniti officiis debitis odit quidem?</p>
-                <button type="button" class="btn btnYellow mt-3 mb-md-0 mb-3">Megnézem</button>
+                <h5>Keresd meg esőerdőinket</h5>
+                <p>Tajékozodj a legnagyobb esőerdőinkről a térképoldalunkon</p>
+                <router-link to="/map" class="btn btnYellow mt-3 mb-md-0 mb-3">Megnézem</router-link> 
             </div>
         </div>
       </div>
@@ -207,5 +211,26 @@ h2 {
 
 .cta-divider {
   max-width: 50px;
+}
+
+.carousel-header {
+  position: absolute;
+  top: 20px;
+  z-index: 5;
+  text-align: center;
+  width: 100%;
+  color: #fff
+}
+
+.carousel-header h1 {
+  color: #fff !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+  font-size: 48px;
+}
+
+.carousel-header p {
+  font-style: italic;
 }
 </style>

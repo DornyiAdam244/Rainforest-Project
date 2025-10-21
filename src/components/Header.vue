@@ -13,7 +13,7 @@ import { registeredUser } from '../utilities/crudUtility';
         </div>
         <nav class="navbar navbar-expand-lg w-100 py-0 pe-0 ps-3 navbar-light d-flex align-items-center">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Esőerdő Projekt</a>
+                <a class="navbar-brand" href="#">Esőerdők világa</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
