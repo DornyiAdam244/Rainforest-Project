@@ -10,7 +10,7 @@
             <img src="../assets/partner4.png" alt="">
         </div>
     </section>
-    <footer>
+    <footer id="contact">
         <div class="backdrop"></div>
         <div class="content p-5">
             <section class="row">
