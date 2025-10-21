@@ -2,6 +2,7 @@ import { ref, watch } from 'vue';
 import User from '../data/user';
 const apiKey = "https://reeldev.hu/api/68f0bc4f541ae089479746";
 const registeredUser = ref(await getRegisteredUserFromJSON());
+
 watch(registeredUser, async (newUser, oldUser) => {
     localStorage.setItem("registeredUser", newUser ? newUser.getCrudId() : "");
 });
@@ -41,21 +42,13 @@ async function updateRegisteredUserData() {
 //     await postUserChanges(registeredUser.value, "users", getRegisteredUserIdFromLocalstorage());
 // }
 
-async function fetchUserId(id, destination = "users") {
-    try {
-        return await (await fetch(`${apiKey}/${destination}/${id}`)).json();
-    }
-    catch (e) {
-        console.error(e);
-    }
-}
+
+
 
 async function fetchRegisteredUserData() {
     const registeredUserId = getRegisteredUserIdFromLocalstorage();
-    if (registeredUserId) {
-        return await (await fetch(`${apiKey}/users/${registeredUserId}`)).json();
-    }
-    return null;
+    const usersJsonList = await (await fetch(`${apiKey}/users`)).json();
+    return usersJsonList.find(user => user.id === registeredUserId) || null;
 }
 
 
@@ -118,4 +111,4 @@ async function fetchUserByName(name) {
 }
 
 
-export { addUser, fetchUserId, fetchUserByName, fetchRegisteredUserData, postUserChanges, updateRegisteredUserData, registeredUser };
+export { addUser, fetchUserByName, fetchRegisteredUserData, postUserChanges, updateRegisteredUserData, registeredUser };

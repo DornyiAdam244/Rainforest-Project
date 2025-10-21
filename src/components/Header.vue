@@ -65,7 +65,7 @@ import { registeredUser } from '../utilities/crudUtility';
 </template>
 <style scoped>
 header {
-    background: linear-gradient(to right, #ddf3d9, #ffffff);
+    background: linear-gradient(to right, #ddf3d9, #fff);
     box-shadow: 0 4px 6px #0000004d;
 }
 
@@ -118,8 +118,6 @@ header {
 }
 
 .router-link-exact-active {
-    color: #fff !important;
-    border-bottom: 2px solid #007b5e;
     font-weight: 700;
 }
 

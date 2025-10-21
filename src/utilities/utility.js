@@ -52,7 +52,7 @@ function getFormValidationResult(formFields, isRegistering) {
     if (isRegistering) {
         const message =  {
             name: {
-                isCorrect: null,
+                isCorrect: true,
                 message: ""
             },
             passwordRepeat: {

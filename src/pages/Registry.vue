@@ -8,7 +8,7 @@ const props = defineProps({
     register: Boolean
 });
 
-const attemptedFormSubmission = ref(false);
+const overrideLengthCondition = ref(false);
 
 let validationData = null;
 
@@ -16,9 +16,9 @@ const name = ref("");
 const passwordRepeat = ref("");
 const password = ref("");
 
+
 watchEffect(() => {
     validationData = getFormValidationResult({ name: name.value, password: password.value, passwordRepeat: passwordRepeat.value }, props.register);
-
 });
 
 function clearFields() {
@@ -35,12 +35,15 @@ function preventServerPropagationIfInvalidFields() {
 }
 
 async function warnInvalidCredentialsOrProceedSignIn() {
-    attemptedFormSubmission.value = true;
+    overrideLengthCondition.value = true;
+    console.log(validationData);
+    
     if (preventServerPropagationIfInvalidFields()) return;
     const user = User.userInstanceFromJSON(await fetchUserByName(name.value));
+    overrideLengthCondition.value = false;
     if (user && user.getPassword() === password.value) {
         registeredUser.value = user;
-        attemptedFormSubmission.value = false;
+        overrideLengthCondition.value = false;
         defaultAlertToast.showSuccessToast("Sikeres Bejelentkezés!", "Átirányítás a főoldalra...");
         console.log("aa");
         
@@ -54,13 +57,17 @@ async function warnInvalidCredentialsOrProceedSignIn() {
 }
 
 function postUserDataOrShowNegativeFeedback() {
-    attemptedFormSubmission.value = true;
-    if (preventServerPropagationIfInvalidFields() && attemptedFormSubmission) defaultAlertToast.showErrorToast("Helytelen űrlap adatok!", "Nézd meg az űrlap mezőit!");
+    overrideLengthCondition.value = true;
+    console.log(validationData);
+    if (preventServerPropagationIfInvalidFields()) defaultAlertToast.showErrorToast("Helytelen űrlap adatok!", "Nézd meg az űrlap mezőit!");
     else {
         fetchUserByName(name.value).then(user => {
-            if (user) defaultAlertToast.showErrorToast("Felhasználónév már létezik!", "A megadott felhasználónévvel már létezik regisztrált felhasználó. Kérlek válassz másikat!");
+            if (user) {
+                validationData.name.message = "Ezzel a névvel már létezik felhasználó! Kérlek, válassz másik nevet!";
+                validationData.name.isCorrect = false;
+            }
             else {
-                attemptedFormSubmission.value = false;
+                overrideLengthCondition.value = false;
                 addUser(new User(name.value, password.value)).then(() => {
                     defaultAlertToast.showSuccessToast("Sikeres Regisztráció!", "Most átirányítunk a bejelentkezés oldalra, ahol jelentkezz be az imént megadott adatokkal!")
                     defaultAlertToast.toastOnHide(() => router.push("/log-in"));
@@ -81,21 +88,21 @@ function postUserDataOrShowNegativeFeedback() {
             <div class="mb-3">
                 <label for="name" class="form-label">Név</label>
                 <input type="text" v-model="name" class="form-control" id="name">
-                <p v-if="((attemptedFormSubmission || register) && name.length) && validationData.name.message"
+                <p v-if="(name.length || overrideLengthCondition) && validationData.name.message"
                     class="text-danger mt-2">{{ validationData.name.message }}
                 </p>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Jelszó</label>
                 <input class="form-control" v-model="password" type="password" id="password">
-                <p v-if="((attemptedFormSubmission || register) && password.length) && validationData.password.message"
+                <p v-if="(password.length || overrideLengthCondition) && validationData.password.message"
                     class="mt-2" :class=validationData.password.bsColorClass>{{
                         validationData.password.message }}</p>
             </div>
             <div class="mb-3" v-if="register">
                 <label for="passwordRepeat" class="form-label">Jelszó Ismét</label>
                 <input class="form-control" v-model="passwordRepeat" type="password" id="passwordRepeat">
-                <p v-if="((attemptedFormSubmission || register) && passwordRepeat.length) && validationData.passwordRepeat.message"
+                <p v-if="(passwordRepeat.length || overrideLengthCondition) && validationData.passwordRepeat.message"
                     class="text-danger mt-2">{{ validationData.passwordRepeat.message }}</p>
             </div>
             <button type="button" class="btn"
