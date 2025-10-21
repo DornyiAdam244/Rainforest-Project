@@ -12,7 +12,7 @@
     </section>
     <footer id="contact">
         <div class="backdrop"></div>
-        <div class="content p-5">
+        <div class="content p-lg-5">
             <section class="row">
                 <div class="contact-form col-lg-6">
                     <form>
@@ -47,10 +47,10 @@
                     </div>
                     <div class="col-lg-4">
                         <h4>Locations</h4>
-                        <ul class="p-0">
-                            <li>Lorem ipsum 1</li>
-                            <li>Lorem ipsum 2</li>
-                            <li>Lorem ipsum 3</li>
+                        <ul class="p-0 loc">
+                            <li>Tatabánya</li>
+                            <li>Canberra</li>
+                            <li>Yorkshire</li>
                         </ul>
                     </div>
                     <div class="col-lg-2">
@@ -100,6 +100,11 @@
 .contact-form {
     position: relative;
     padding-top: 0 !important;
+}
+
+.loc li {
+    font-size: 16px !important;
+    margin-bottom: 5px;
 }
 
 .contact-form h3 {
@@ -216,11 +221,16 @@ li {
 @media only screen and (max-width: 1200px) {
     form {
         position: static !important;
+        box-shadow: none !important;
     }
 
     .contact-form {
         position: static !important;
-        padding: 30px;
+        padding: 0
+    }
+
+    .row div:not(.contact-form, .contact-form div) {
+        padding: 30px !important;
     }
 }
 </style>
