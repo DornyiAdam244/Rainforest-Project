@@ -13,7 +13,7 @@ function getFocusedAnimalID() {
   if (seenAnimalsSet && seenAnimalsSet.size != 0) {
     return [...seenAnimalsSet].pop();
   }
-  return 1;
+  return 0;
 }
 
 const total = computed(() => animals.length)
