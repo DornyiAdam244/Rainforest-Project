@@ -14,7 +14,7 @@ setTimeout(() => { /* Hotfix to make sure the map component is loaded before run
             fillColor: '#228B22',
             fillOpacity: 0.4,
             radius: rf.radius
-        }).addTo(map).bindPopup(rf.name);
+        }).addTo(map).bindPopup("<strong><p>" + rf.name + "</p>Terület: </strong>" + rf.areaKm2 + " km<sup>2</sup><br>" + rf.description);
     });
 }, 1);
 
