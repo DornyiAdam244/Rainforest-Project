@@ -3,6 +3,7 @@ import Toast from '../data/toast';
 import router from '../router';
 const defaultAlertToast = new Toast("liveToast");
 
+
 function getPasswordFeedback(password) {
     const feedback = { isCorrect: false, message: "", bsColorClass: "text-danger" };
     if (password.length < 4) {
@@ -49,10 +50,10 @@ function signOutUser() {
 
 function getFormValidationResult(formFields, isRegistering) {
     if (isRegistering) {
-        return {
+        const message =  {
             name: {
-                isCorrect: formFields.name.length > 3,
-                message: formFields.name.length > 3 ? null : "A név nem elég hosszú!"
+                isCorrect: null,
+                message: ""
             },
             passwordRepeat: {
                 isCorrect: formFields.password == formFields.passwordRepeat,
@@ -60,6 +61,17 @@ function getFormValidationResult(formFields, isRegistering) {
             },
             password: getPasswordFeedback(formFields.password)
         }
+
+        if (formFields.name.length < 3) {
+            message.name.message = "A név nem elég hosszú!"
+            message.name.isCorrect = false;
+        }
+        else if (formFields.name.length > 30) {
+            message.name.message = "A név maximum 30 karaktert tartalmazhat!"
+            message.name.isCorrect = false;
+        }
+
+        return message;
     }
     return {
         name: {
