@@ -23,6 +23,12 @@ async function getRegisteredUserFromJSON() {
     return User.userInstanceFromJSON(await fetchRegisteredUser());
 }
 
+async function saveUserQuizResult() {
+    await postUserChanges(registeredUser.value, "registeredUser");
+    const idFromUsersTable = User.userInstanceFromJSON(await fetchUserByName(registeredUser.value.getName())).getCrudId();
+    await postUserChanges(registeredUser.value, "users", idFromUsersTable);
+}
+
 
 async function updateSeenAnimalsForRegisteredUser() {
     await postUserChanges(registeredUser.value, "registeredUser");
@@ -48,7 +54,7 @@ async function fetchRegisteredUser() {
     }
 }
 
-async function postUserChanges(user, destination = "users", id=null) {
+async function postUserChanges(user, destination = "users", id = null) {
     try {
         console.log(user.toJSON());
         console.log(JSON.stringify(user.toJSON()));
@@ -59,7 +65,7 @@ async function postUserChanges(user, destination = "users", id=null) {
             },
             body: JSON.stringify(user.toJSON())
         });
-        
+
     }
     catch (e) {
         console.error(e);
@@ -77,7 +83,7 @@ async function fetchUsers() {
 }
 
 async function switchRegisteredUsers(newUser, oldUser) {
-    try {   
+    try {
         if (oldUser) {
             await fetch(`${apiKey}/registeredUser/${oldUser.getCrudId()}`, {
                 method: 'DELETE'
@@ -104,4 +110,4 @@ async function fetchUserByName(name) {
 }
 
 
-export { addUser, fetchUserId, fetchUserByName, fetchRegisteredUser, postUserChanges, switchRegisteredUsers, registeredUser, updateSeenAnimalsForRegisteredUser };
+export { addUser, fetchUserId, fetchUserByName, fetchRegisteredUser, postUserChanges, switchRegisteredUsers, registeredUser, updateSeenAnimalsForRegisteredUser, saveUserQuizResult };
