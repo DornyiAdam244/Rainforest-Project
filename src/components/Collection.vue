@@ -16,20 +16,6 @@ const animals = computed(() =>
     })
 );
 
-
-function arrangeAnimalsBySeenStatus() {
-    for (let i = 0; i < animals.value.length; i++) {
-        if (animals.value[i].hasSeen) {
-            let preIndexSlice = animals.value.slice(0, i);
-            let postIndexSlice = animals.value.slice(i + 1);
-            preIndexSlice.unshift(animals.value[i]);
-            animals.value = preIndexSlice.concat(postIndexSlice);
-        }
-    }
-}
-
-
-
 </script>
 
 <template>

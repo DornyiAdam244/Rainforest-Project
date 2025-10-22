@@ -62,7 +62,6 @@ const searchForAnimal = () => {
     return
   }
   queries.value = animals.filter(a => a.Name.toLowerCase().includes(query.value.toLowerCase()))
-  console.log(queries.value);
 
   if (queries.value.length == 1) {
     focusedAnimalID.value = queries.value[0].id - 1

@@ -13,7 +13,7 @@ export default class User {
     }
 
     static userInstanceFromJSON(json) {
-        if (json) return new User(json.name, json.password, json.id,new Set(json.seenAnimals || []),json.quizresult);
+        if (json) return new User(json.name, json.password, json.id,new Set(json.seenAnimals || []), json.quizresult);
         return null;
     }
 

@@ -1,17 +1,13 @@
 <script setup>
-import animalsRaw from '../data/animals.json'
-import { computed, ref} from 'vue';
-import { getImageUrl } from '../utilities/animalsUtility';
-import { registeredUser } from '../utilities/crudUtility';
-
-const bestQuiz = registeredUser.value.getBestQuizResult();
+import { ref } from 'vue';
+import { registeredUser, bestQuiz } from '../utilities/crudUtility';
 const maxScore = ref(10)
 
 
 </script>
 
 <template>
-    <section class="quiz-result-wrapper text-center p-4">
+    <section class="quiz-result-wrapper text-center p-4" v-if="bestQuiz != undefined">
       <div class="quiz-card mx-auto">
         <h2 class="quiz-title">🏆 Legjobb <br> kvíz eredmény</h2>
   

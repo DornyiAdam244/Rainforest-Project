@@ -1,8 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { registeredUser, updateRegisteredUserData } from '../utilities/crudUtility'
-
+import { registeredUser, updateRegisteredUserData, bestQuiz } from '../utilities/crudUtility'
+import { getImageUrl } from '../utilities/animalsUtility'
 import animals from '../data/animals.json'
+import QuizResult from '../components/QuizResult.vue'
 const evaluatedPair = ref(false)
 const currentQuestionCorrect = ref(false);
 const animalPairs = ref([])
@@ -10,21 +11,17 @@ const correctQuestions = ref(0)
 const maxQuestions = ref(10)
 const totalQuestionsDone = ref(0)
 const previousAnimals = ref({})
-const getImageUrl = (file) => new URL(`../assets/${file}`, import.meta.url).href
 let modalInstance = null
 onMounted(() => {
   const modalEl = document.getElementById('exampleModal')
   modalInstance = new window.bootstrap.Modal(modalEl)
 })
 
-
-const bestQuiz = ref(registeredUser.value?.getBestQuizResult() || 0);
-
 const isReversed = ref(false)
 
 const getPair = () => {
+  updateScore();
   if (totalQuestionsDone.value >= maxQuestions.value) return
-
   evaluatedPair.value = false
   modalInstance?.hide()
   animalPairs.value = {
@@ -77,10 +74,15 @@ const valuateChoice = (isVenomous) => {
   evaluatedPair.value = true
 }
 
+function updateScore() {
+  if (bestQuiz.value < correctQuestions.value) {
+    bestQuiz.value = correctQuestions.value;
+    registeredUser.value?.setBestQuizResult(bestQuiz.value);
+    updateRegisteredUserData();
+  }
+}
+
 const newGame = () => {
-  const bestQuiz = ref(registeredUser.value?.getBestQuizResult() || 0);
-  if (bestQuiz.value < correctQuestions.value) registeredUser.value?.setBestQuizResult(correctQuestions.value)
-  updateRegisteredUserData()
   previousAnimals.value = {}
   correctQuestions.value = 0
   totalQuestionsDone.value = 0
@@ -105,14 +107,15 @@ const newGame = () => {
         </div>
         <div class="modal-footer text-center">
           <button type="button" class="btn bg-danger" data-bs-dismiss="modal">Bezárás</button>
-          <button @click="getPair()" v-if="!(totalQuestionsDone.value >= maxQuestions.value) " class="btn btn-success px-4">Következő pár!</button>
+          <button @click="getPair()" v-if="!(totalQuestionsDone.value >= maxQuestions.value)"
+            class="btn btn-success px-4">Következő pár!</button>
         </div>
       </div>
     </div>
   </div>
 
   <section class="container py-5 d-flex flex-column align-items-center gap-4">
-    <h1>{{ totalQuestionsDone }}</h1>
+    <QuizResult/>
     <h1 class="fw-bold text-center mb-4">Teszteld tudásod!</h1>
 
     <p class="text-center fw-bold lead text-muted lh-lg col-10 col-md-8">

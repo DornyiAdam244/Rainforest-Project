@@ -164,10 +164,6 @@ ul h4 {
 
 }
 
-/* footer section div:not(.contact-form div) {
-    width: calc(100%/4);
-} */
-
 ul.d-flex li {
     margin: 0 10px;
 }

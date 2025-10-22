@@ -36,17 +36,15 @@ function preventServerPropagationIfInvalidFields() {
 
 async function warnInvalidCredentialsOrProceedSignIn() {
     overrideLengthCondition.value = true;
-    console.log(validationData);
-    
     if (preventServerPropagationIfInvalidFields()) return;
+
     const user = User.userInstanceFromJSON(await fetchUserByName(name.value));
     overrideLengthCondition.value = false;
+
     if (user && user.getPassword() === password.value) {
         registeredUser.value = user;
         overrideLengthCondition.value = false;
         defaultAlertToast.showSuccessToast("Sikeres Bejelentkezés!", "Átirányítás a főoldalra...");
-        console.log("aa");
-        
         defaultAlertToast.toastOnHide(() => router.push("/home"));
         clearFields();
     }
@@ -58,7 +56,6 @@ async function warnInvalidCredentialsOrProceedSignIn() {
 
 function postUserDataOrShowNegativeFeedback() {
     overrideLengthCondition.value = true;
-    console.log(validationData);
     if (preventServerPropagationIfInvalidFields()) defaultAlertToast.showErrorToast("Helytelen űrlap adatok!", "Nézd meg az űrlap mezőit!");
     else {
         fetchUserByName(name.value).then(user => {

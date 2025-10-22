@@ -2,6 +2,7 @@ import { ref, watch } from 'vue';
 import User from '../data/user';
 const apiKey = "https://reeldev.hu/api/68f0bc4f541ae089479746";
 const registeredUser = ref(await getRegisteredUserFromJSON());
+const bestQuiz = ref(registeredUser.value?.getBestQuizResult() || 0);
 
 watch(registeredUser, async (newUser, oldUser) => {
     localStorage.setItem("registeredUser", newUser ? newUser.getCrudId() : "");
@@ -26,24 +27,9 @@ async function getRegisteredUserFromJSON() {
     return User.userInstanceFromJSON(await fetchRegisteredUserData());
 }
 
-// async function saveUserQuizResult() {
-//     await postUserChanges(registeredUser.value, "registeredUser");
-//     const idFromUsersTable = User.userInstanceFromJSON(await fetchUserByName(registeredUser.value.getName())).getCrudId();
-//     await postUserChanges(registeredUser.value, "users", idFromUsersTable);
-// }
-
 async function updateRegisteredUserData() {
     await postUserChanges(registeredUser.value, "users", getRegisteredUserIdFromLocalstorage());
 }
-
-// async function updateSeenAnimalsForRegisteredUser() {
-//     //await postUserChanges(registeredUser.value, "registeredUser");
-//     // const idFromUsersTable = User.userInstanceFromJSON(await fetchUserByName(registeredUser.value.getName())).getCrudId();
-//     await postUserChanges(registeredUser.value, "users", getRegisteredUserIdFromLocalstorage());
-// }
-
-
-
 
 async function fetchRegisteredUserData() {
     const registeredUserId = getRegisteredUserIdFromLocalstorage();
@@ -83,22 +69,6 @@ async function fetchUsers() {
     }
 }
 
-// async function switchRegisteredUsers(newUser, oldUser) {
-//     try {
-//         if (oldUser) {
-//             await fetch(`${apiKey}/registeredUser/${oldUser.getCrudId()}`, {
-//                 method: 'DELETE'
-//             });
-//         }
-//         if (newUser) {
-//             await addUser(newUser, "registeredUser");
-//         }
-//     }
-//     catch (e) {
-//         console.error(e);
-//     }
-// }
-
 async function fetchUserByName(name) {
     try {
         const userList = await fetchUsers();
@@ -111,4 +81,4 @@ async function fetchUserByName(name) {
 }
 
 
-export { addUser, fetchUserByName, fetchRegisteredUserData, postUserChanges, updateRegisteredUserData, registeredUser };
+export { addUser, fetchUserByName, fetchRegisteredUserData, postUserChanges, updateRegisteredUserData, registeredUser, bestQuiz };
