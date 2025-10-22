@@ -88,6 +88,8 @@ const newGame = () => {
   totalQuestionsDone.value = 0
   getPair()
 }
+
+
 </script>
 
 <template>

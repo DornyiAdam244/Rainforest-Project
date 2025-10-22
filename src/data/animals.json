@@ -2,133 +2,133 @@
   {
     "id": 1,
     "Name": "Jaguár",
-    "ImagePath": "jaguar.png",
+    "ImagePath": "jaguar.jpg",
     "Description": "A dél-amerikai esőerdők <strong>csúcsragadozója</strong>, amely <em>kiváló úszó és mászó</em>. Jellegzetes <strong>foltjai</strong> segítik az <strong>álcázásban</strong>.<br><i>tigrincs</i>",
     "isVenomous": false
   },
   {
     "id": 2,
     "Name": "Zöld anakonda",
-    "ImagePath": "green_anaconda.png",
+    "ImagePath": "green_anaconda.jpg",
     "Description": "A világ egyik <strong>legnagyobb kígyója</strong>, amely akár <strong>8 méteresre</strong> is megnőhet. <strong>Víz közelében él</strong>, és <em>főként halakkal, madarakkal táplálkozik</em>.",
     "isVenomous": false
   },
   {
     "id": 3,
     "Name": "Nyílméregbéka",
-    "ImagePath": "poison_dart_frog.png",
+    "ImagePath": "poison_dart_frog.jpg",
     "Description": "Apró, <strong>színes béka</strong>, amely <em>erős mérget választ ki</em> a bőrén. Feltűnő <strong>színei</strong> <em>figyelmeztetik</em> a ragadozókat a veszélyre.",
     "isVenomous": true
   },
   {
     "id": 4,
     "Name": "Tukán",
-    "ImagePath": "toucan.png",
+    "ImagePath": "toucan.jpg",
     "Description": "<strong>Nagy, színes csőréről</strong> ismert madár. <em>Főként gyümölcsöket eszik</em>, és fontos szerepe van a <strong>magok terjesztésében</strong>.",
     "isVenomous": false
   },
   {
     "id": 5,
     "Name": "Közönséges óriáskígyó",
-    "ImagePath": "boa_constrictor.png",
+    "ImagePath": "boa_constrictor.jpg",
     "Description": "<strong>Nagytestű kígyó</strong>, amely <em>megfojtja zsákmányát</em>. Főként <em>éjszaka vadászik</em> kisebb emlősökre és madarakra.",
     "isVenomous": false
   },
   {
     "id": 6,
     "Name": "Madárpók",
-    "ImagePath": "tarantula.png",
+    "ImagePath": "tarantula.jpg",
     "Description": "<strong>Szőrös, nagyméretű pók</strong>, amely <em>főként rovarokat és kisebb gerinceseket ejt el</em>. Csípése <strong>ritkán veszélyes</strong> emberre.",
     "isVenomous": true
   },
   {
     "id": 7,
     "Name": "Zöld fa piton",
-    "ImagePath": "green_tree_python.png",
+    "ImagePath": "green_tree_python.jpg",
     "Description": "A pápua és ausztrál esőerdők egyik <strong>legszebb kígyója</strong>. <strong>Fákon él</strong>, <em>zöld színe</em> segít <strong>elrejtőzni</strong> a lombkoronában.",
     "isVenomous": false
   },
   {
     "id": 8,
     "Name": "Szivárványos boa",
-    "ImagePath": "rainbow_boa.png",
+    "ImagePath": "rainbow_boa.jpg",
     "Description": "Nevét a bőrén visszaverődő <strong>irizáló fényről</strong> kapta. <strong>Békés kígyó</strong>, amely <em>fákon és talajon is vadászik</em>.",
     "isVenomous": false
   },
   {
     "id": 9,
     "Name": "Kolibri",
-    "ImagePath": "hummingbird.png",
+    "ImagePath": "hummingbird.jpg",
     "Description": "A világ <strong>legkisebb madara</strong>, amely képes a levegőben <em>egy helyben lebegni</em>. Fontos <strong>beporzó</strong> az esőerdőkben.",
     "isVenomous": false
   },
   {
     "id": 10,
     "Name": "Levelibéka",
-    "ImagePath": "tree_frog.png",
+    "ImagePath": "tree_frog.jpg",
     "Description": "<strong>Zöld bőre</strong> és <strong>tapadókorongos lába</strong> <em>segíti a mászásban</em>. Nedves <strong>leveleken él</strong>, és <em>rovarokkal táplálkozik</em>.",
     "isVenomous": false
   },
   {
     "id": 11,
     "Name": "Piros szárnyú skorpió",
-    "ImagePath": "red_tailed_scorpion.png",
+    "ImagePath": "red_tailed_scorpion.jpg",
     "Description": "Az esőerdők <strong>aljnövényzetében</strong> élő skorpió, amely <em>csípésével védekezik</em> a ragadozók ellen.",
     "isVenomous": true
   },
   {
     "id": 12,
     "Name": "Papagáj",
-    "ImagePath": "parrot.png",
+    "ImagePath": "parrot.jpg",
     "Description": "<strong>Színes</strong>, <strong>hangutánzó</strong> madár, amely <em>csoportokban él</em> és <strong>nagyon intelligens</strong>. Segíti a növények szaporodását a <strong>magok terjesztésével</strong>.",
     "isVenomous": false
   },
   {
     "id": 13,
     "Name": "Korallkígyó",
-    "ImagePath": "coral_snake.png",
+    "ImagePath": "coral_snake.jpg",
     "Description": "Élénk <strong>piros-sárga-fekete gyűrűs mintázat</strong> jellemzi. <em>Erős idegmérget</em> használ zsákmánya ellen.",
     "isVenomous": true
   },
   {
     "id": 14,
     "Name": "Arany nyílméregbéka",
-    "ImagePath": "golden_poison_frog.png",
+    "ImagePath": "golden_poison_frog.jpg",
     "Description": "Az egyik <strong>legmérgezőbb gerinces</strong>. Bőrének toxinja <em>apró mennyiségben is halálos</em> lehet.",
     "isVenomous": true
   },
   {
     "id": 15,
     "Name": "Brazil vándorpók",
-    "ImagePath": "brazilian_wandering_spider.png",
+    "ImagePath": "brazilian_wandering_spider.jpg",
     "Description": "Az egyik <strong>legerősebb mérgű pók</strong>. <em>Gyors és aktív</em> vadász, Dél-Amerika esőerdeiben.",
     "isVenomous": true
   },
   {
     "id": 16,
     "Name": "Zöld fa vipera",
-    "ImagePath": "green_pit_viper.png",
+    "ImagePath": "green_pit_viper.jpg",
     "Description": "Ázsiai esőerdők <strong>élénkzöld viperája</strong>. <em>Hemotoxikus méreggel</em> védekezik és zsákmányol.",
     "isVenomous": true
   },
   {
     "id": 17,
     "Name": "Lándzsakígyó",
-    "ImagePath": "fer_de_lance.png",
+    "ImagePath": "fer_de_lance.jpg",
     "Description": "Esőerdők talaján élő <strong>agresszívebb viperafaj</strong>. Csípése <em>szövetroncsoló</em> hatású.",
     "isVenomous": true
   },
   {
     "id": 18,
     "Name": "Amazonasi skorpió (Tityus)",
-    "ImagePath": "tityus_scorpion.png",
+    "ImagePath": "tityus_scorpion.jpg",
     "Description": "<strong>Sárgás-barnás</strong> skorpió, melynek mérge <em>neurotoxikus</em>. Az aljnövényzetben rejtőzik.",
     "isVenomous": true
   },
   {
     "id": 19,
     "Name": "Golyóhangya",
-    "ImagePath": "bullet_ant.png",
+    "ImagePath": "bullet_ant.jpg",
     "Description": "Hírhedt a <strong>rendkívül fájdalmas csípésről</strong>. <em>Erős méreggel</em> védekezik a ragadozók ellen.",
     "isVenomous": true
   },
@@ -136,7 +136,7 @@
   {
     "id": 20,
     "Name": "Kék Morpho lepke",
-    "ImagePath": "blue_morpho.png",
+    "ImagePath": "blue_morpho.jpg",
     "Description": "A trópusi esőerdők <strong>ragyogó kék</strong> szárnyú lepkéje. <em>Fényt visszaverő pikkelyei</em> adják különleges színét.",
     "isVenomous": false
   }
